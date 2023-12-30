@@ -1,0 +1,28 @@
+site_name: Byte Mind
+
+site_url: 
+
+use_directory_urls: False
+
+theme:
+  name: material
+  palette:
+    primary: black
+    schema: slate
+
+  font:
+    text: Noto Serif
+    code: Roboto Mono
+
+  features:
+    - toc.integrate
+    - navigation.tabs
+    # - navigation.tabs.sticky
+
+nav:
+  - Blog:
+    - blog/index.md
+
+plugins:
+  - blog
+  - social
