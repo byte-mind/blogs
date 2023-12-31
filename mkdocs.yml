@@ -26,3 +26,7 @@ nav:
 plugins:
   - blog
   - social
+  - tags
+
+markdown_extensions:
+  - admonition # add call-out blocks
