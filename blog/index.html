@@ -396,8 +396,80 @@
 <p class="admonition-title">Intro</p>
 </div>
 <p>满足云原生最佳技术实践和管理实践要求，应用从需求提出开始就使用云原生资源和服务能力，并最终能够持续交付到云平台的应用；同时在该应用交付完成后还需要具备足够的管控治理能力和可观测性。</p>
+<p>Cloud Native 包含</p>
+<ul>
+<li>
+<p>技术 （<a href="2023/12/31/microservice.html">微服务</a>， 敏捷基础管理）</p>
+</li>
+<li>
+<p>管理 （DevOps, <a href="2023/12/31/continuous-integration--delivery.html">CI&amp;CD</a>, Conways Law, etc)</p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Why</p>
+<table>
+<thead>
+<tr>
+<th>Req</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>更快的上线需求</td>
+<td>CI&amp;CD</td>
+</tr>
+<tr>
+<td>细致的故障探测和发现</td>
+<td><a href="2023/12/31/microservice.html">微服务</a></td>
+</tr>
+<tr>
+<td>故障能自动隔离</td>
+<td><a href="2023/12/31/microservice.html">微服务</a></td>
+</tr>
+<tr>
+<td>故障可以自动恢复</td>
+<td><a href="2023/12/31/microservice.html">微服务</a></td>
+</tr>
+<tr>
+<td>水平扩容</td>
+<td><a href="2023/12/31/microservice.html">微服务</a></td>
+</tr>
+</tbody>
+</table>
+</div>
     <nav class="md-post__action">
       <a href="2023/12/31/cloud-native.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="continuous-integration-delivery"><a class="toclink" href="2023/12/31/continuous-integration--delivery.html">Continuous Integration &amp; Delivery</a></h2>
+    <nav class="md-post__action">
+      <a href="2023/12/31/continuous-integration--delivery.html">
         Continue reading
       </a>
     </nav>
@@ -471,11 +543,61 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">微服务网关和API网关</p>
-<p>API网关一般具备独立的服务注册接入，负载均衡和路由能力</p>
+<p>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、<a href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错能力</a></p>
 <p>微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由</p>
 </div>
     <nav class="md-post__action">
       <a href="2023/12/31/microservice.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="_1"><a class="toclink" href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错</a></h2>
+<h4 id="definition"><a class="toclink" href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html#definition">Definition</a></h4>
+<p>系统依赖的某个服务发生延迟或者故障，数秒内导致所有应用资源（线程，队列等）被耗尽，造成所谓的雪崩效应 (Cascading Failure)，导致整个系统拒绝对外提供服务。</p>
+<div class="admonition info">
+<p class="admonition-title">principle</p>
+<p>Design for failure</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Solution</p>
+<p>Timeout &amp; Retry </p>
+<p>Rate limiting &amp; Load Shield</p>
+<p>Circuit Breaker</p>
+<p>Bulkhead Isolation</p>
+<p>Fallback</p>
+<pre><code>自定义处理
+
+fail-silent
+
+fail-fast
+</code></pre>
+</div>
+    <nav class="md-post__action">
+      <a href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">
         Continue reading
       </a>
     </nav>
