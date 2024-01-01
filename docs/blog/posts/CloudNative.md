@@ -12,9 +12,29 @@ date:
 
 Cloud Native 包含
 
-- 技术 （[微服务](Microservices.md)， 敏捷基础管理）
+- [微服务](Microservices.md)， 敏捷基础管理
 
-- 管理 （DevOps, [CI&CD](./ContinuousDelivery.md), Conways Law, etc)
+- DevOps, [CI&CD](./ContinuousDelivery.md), Conways Law, etc
+
+- 应用容器化 (software stack to be containerized)
+
+- 面向微服务 (microservice oriented)
+
+- 容器编排调度 (orchestrated)
+
+- 服务网格 (service mesh)
+
+```
+微服务中分 侵入式架构和非侵入式架构
+侵入式架构 - Dev 调用各种组件，如 RPC ，负载均衡，熔断等，业务代码与非功能性代码耦合
+非侵入式架构 - Dev 关注业务代码， Service Mesh 关注其他非功能性
+```
+
+- 不可变基础设施 (Immuntable Infrastructure)
+
+
+- 声明式API (declarative API)
+
 
 !!! info "Why"
 
