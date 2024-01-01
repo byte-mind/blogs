@@ -34,11 +34,9 @@ date:
 
 
 ### 架构
-
 #### 高可用
+##### [限流](ratelimit.md) 
 
-- [限流](ratelimit.md) 
-- 
 
 
 ### 支付

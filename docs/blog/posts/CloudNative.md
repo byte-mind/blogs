@@ -6,7 +6,7 @@ date:
 
 # Cloud Native
 
-!!! info "Intro"
+### "Intro"
 
 满足云原生最佳技术实践和管理实践要求，应用从需求提出开始就使用云原生资源和服务能力，并最终能够持续交付到云平台的应用；同时在该应用交付完成后还需要具备足够的管控治理能力和可观测性。
 
@@ -36,7 +36,7 @@ Cloud Native 包含
 - 声明式API (declarative API)
 
 
-!!! info "Why"
+### info "Why"
 
     | Req                  | Solution |
     | -------------------- | -------- |
