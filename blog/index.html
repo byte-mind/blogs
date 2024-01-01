@@ -135,6 +135,45 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -503,15 +542,33 @@ MySQL执行更新操作后，在真正把数据写入到磁盘前，先记录日
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="interview"><a class="toclink" href="2024/01/01/interview.html">interview</a></h2>
-<h4 id="db"><a class="toclink" href="2024/01/01/interview.html#db">DB 相关</a></h4>
+<h4 id="db"><a class="toclink" href="2024/01/01/interview.html#db"><a href="2023/12/30/db.html">DB 相关</a></a></h4>
 <ul>
 <li>数据一致性</li>
 <li>MySQL 存储引擎</li>
 <li>MySQL 索引</li>
+<li>MySQL 回滚</li>
 <li>MySQL 日志</li>
 <li>MySQL HA</li>
 </ul>
-<h4 id="cache"><a class="toclink" href="2024/01/01/interview.html#cache">cache 相关</a></h4>
+<h4 id="cache"><a class="toclink" href="2024/01/01/interview.html#cache"><a href="2023/12/31/cache.html">cache 相关</a></a></h4>
+<ul>
+<li>缓存雪崩</li>
+<li>缓存击穿</li>
+<li>缓存穿透</li>
+</ul>
+<h5 id="redis"><a class="toclink" href="2024/01/01/interview.html#redis"><a href="2023/12/31/cache.html#redis">Redis</a></a></h5>
+<ul>
+<li>淘汰策略</li>
+<li>集群</li>
+<li>分布式锁</li>
+</ul>
+<h4 id="_1"><a class="toclink" href="2024/01/01/interview.html#_1">消息</a></h4>
+<h5 id="kafka"><a class="toclink" href="2024/01/01/interview.html#kafka">kafka</a></h5>
+<h4 id="_2"><a class="toclink" href="2024/01/01/interview.html#_2">架构</a></h4>
+<h5 id="_3"><a class="toclink" href="2024/01/01/interview.html#_3">高可用</a></h5>
+<h3 id="-"><a class="toclink" href="2024/01/01/interview.html#-">- <a href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">限流</a></a></h3>
+<h4 id="_4"><a class="toclink" href="2024/01/01/interview.html#_4">支付</a></h4>
     <nav class="md-post__action">
       <a href="2024/01/01/interview.html">
         Continue reading
@@ -541,10 +598,24 @@ MySQL执行更新操作后，在真正把数据写入到磁盘前，先记录日
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="rate-limit"><a class="toclink" href="2024/01/01/rate-limit.html">Rate Limit</a></h2>
-<h4 id="redis"><a class="toclink" href="2024/01/01/rate-limit.html#redis">Redis</a></h4>
+    <h2 id="ratelimit"><a class="toclink" href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">Ratelimit</a></h2>
+<h2 id="rate-limit"><a class="toclink" href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#rate-limit"><a href="https://juejin.cn/post/7209504489010430010?searchId=202401011520515375BF8CA32F8E95D53C">Rate Limit</a></a></h2>
+<p>固定窗口限流算法 Fixed Window Rate Limiting Algo</p>
+<p>滑动窗口限流算法 : 单位时间周期分为n个小周期，分别记录每个小周期内接口的访问次数</p>
+<p>漏桶限流算法 : Leaky Bucket Algo , 请求 判断是否达到当前 漏桶 Capacity， 是 refuse， 否 进行服务</p>
+<p>令牌桶算法 : 维护一个固定容量的令牌桶，每秒钟会向令牌桶中放入一定数量的令牌。当有请求到来时，如果令牌桶中有足够的令牌，则请求被允许通过并从令牌桶中消耗一个令牌，否则请求被拒绝。</p>
+<h4 id="nginx"><a class="toclink" href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#nginx"><a href="https://juejin.cn/post/7120044094239277070">Nginx 限流</a></a></h4>
+<p>限制访问频率和限制并发连接数</p>
+<pre><code>ngx_http_limit_req_module
+
+</code></pre>
+<h4 id="redis"><a class="toclink" href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#redis"><a href="https://juejin.cn/post/7033646189845151757">Redis 限流</a></a></h4>
+<p>基于Redis的setnx的操作</p>
+<p>基于Redis的数据结构zset</p>
+<p>基于Redis的令牌桶算法</p>
+<h4 id="sentinel"><a class="toclink" href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#sentinel">Sentinel 限流</a></h4>
     <nav class="md-post__action">
-      <a href="2024/01/01/rate-limit.html">
+      <a href="2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">
         Continue reading
       </a>
     </nav>
@@ -626,325 +697,6 @@ MySQL执行更新操作后，在真正把数据写入到磁盘前，先记录日
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="cache"><a class="toclink" href="2023/12/31/cache.html">Cache</a></h2>
-<h4 id="redis"><a class="toclink" href="2023/12/31/cache.html#redis">Redis</a></h4>
-<div class="admonition info">
-<p class="admonition-title">why so fast</p>
-</div>
-<p><img alt="" src="20240101104811.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">supported applications</p>
-</div>
-<p><a href="2023/12/31/cache.html#redis">分布式锁</a></p>
-<p><a href="2024/01/01/rate-limit.html#redis">限流</a></p>
-<p>消息队列</p>
-<p>延时队列</p>
-<p>分布式session</p>
-<h6 id="_1"><a class="toclink" href="2023/12/31/cache.html#_1">持久化</a></h6>
-<p>snapshotting, RDB</p>
-<p>append-only, AOF</p>
-<p>RDB &amp; AOF</p>
-<h6 id="_2"><a class="toclink" href="2023/12/31/cache.html#_2">集群</a></h6>
-<ul>
-<li>
-<p>Master Slave</p>
-</li>
-<li>
-<p>Sentinel</p>
-</li>
-</ul>
-<p>主从复制基础上加入了哨兵节点，实现了自动故障转移,会监控主节点和从节点的运行状态。当主节点发生故障时，哨兵节点会自动从从节点中选举出一个新的主节点，并通知其他从节点和客户端，实现故障转移。</p>
-<ul>
-<li>Cluster</li>
-</ul>
-<p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
-    <nav class="md-post__action">
-      <a href="2023/12/31/cache.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="cloud-native"><a class="toclink" href="2023/12/31/cloud-native.html">Cloud Native</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Intro</p>
-</div>
-<p>满足云原生最佳技术实践和管理实践要求，应用从需求提出开始就使用云原生资源和服务能力，并最终能够持续交付到云平台的应用；同时在该应用交付完成后还需要具备足够的管控治理能力和可观测性。</p>
-<p>Cloud Native 包含</p>
-<ul>
-<li>
-<p><a href="2023/12/31/microservice.html">微服务</a>， 敏捷基础管理</p>
-</li>
-<li>
-<p>DevOps, <a href="2023/12/31/continuous-integration--delivery.html">CI&amp;CD</a>, Conways Law, etc</p>
-</li>
-<li>
-<p>应用容器化 (software stack to be containerized)</p>
-</li>
-<li>
-<p>面向微服务 (microservice oriented)</p>
-</li>
-<li>
-<p>容器编排调度 (orchestrated)</p>
-</li>
-<li>
-<p>服务网格 (service mesh)</p>
-</li>
-</ul>
-<pre><code>微服务中分 侵入式架构和非侵入式架构
-侵入式架构 - Dev 调用各种组件，如 RPC ，负载均衡，熔断等，业务代码与非功能性代码耦合
-非侵入式架构 - Dev 关注业务代码， Service Mesh 关注其他非功能性
-</code></pre>
-<ul>
-<li>
-<p>不可变基础设施 (Immuntable Infrastructure)</p>
-</li>
-<li>
-<p>声明式API (declarative API)</p>
-</li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">Why</p>
-<table>
-<thead>
-<tr>
-<th>Req</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>更快的上线需求</td>
-<td>CI&amp;CD</td>
-</tr>
-<tr>
-<td>细致的故障探测和发现</td>
-<td><a href="2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>故障能自动隔离</td>
-<td><a href="2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>故障可以自动恢复</td>
-<td><a href="2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>水平扩容</td>
-<td><a href="2023/12/31/microservice.html">微服务</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-    <nav class="md-post__action">
-      <a href="2023/12/31/cloud-native.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="continuous-integration-delivery"><a class="toclink" href="2023/12/31/continuous-integration--delivery.html">Continuous Integration &amp; Delivery</a></h2>
-    <nav class="md-post__action">
-      <a href="2023/12/31/continuous-integration--delivery.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="microservice"><a class="toclink" href="2023/12/31/microservice.html">MicroService</a></h2>
-<h4 id="framework"><a class="toclink" href="2023/12/31/microservice.html#framework">Framework</a></h4>
-<div class="admonition info inline">
-<p class="admonition-title">Dubbo</p>
-<p>Provider：暴露服务的提供方，可以通过jar或者容器的方式启动服务；</p>
-<p>Consumer：调用远程服务的服务消费方；</p>
-<p>Registry：服务注册中心和发现中心；</p>
-<p>Monitor：统计服务和调用次数，调用时间监控中心（dubbo的控制台页面中可以显示，目前只有一个简单版本）；</p>
-<p>Container：服务运行的容器</p>
-</div>
-<p><img alt="" src="20231231134242.png" /></p>
-<hr />
-<div class="admonition info">
-<p class="admonition-title">spring cloud</p>
-<p>服务注册发现    动态路由      负载均衡      配置管理      消息总线        熔断器        分布式链路追踪       大数据操作</p>
-</div>
-<p><img alt="" src="20231231135715.png" /></p>
-<h4 id="key"><a class="toclink" href="2023/12/31/microservice.html#key">Key</a></h4>
-<div class="admonition info">
-<p class="admonition-title">微服务的跨库查询</p>
-<p>微服务拆分后，底层数据库也会拆分。</p>
-<ul>
-<li>
-<p>可以通过数据冗余，但是会带来<strong>数据延迟，数据不一致</strong>的潜在风险，共享的数据放到 ODS 数据层；</p>
-</li>
-<li>
-<p>也可以通过建立领域层来提供Aggregator来解决对应问题；</p>
-</li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">业务域拆分数据库</p>
-<p>微服务在代码层进行拆分，数据库实例还是共享模式；</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务变更</p>
-<p>微服务变更期间对相关调用方和被调用方的影响</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务的领域编排</p>
-<p>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
-比如: 
-<code>对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口</code></p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务网关和API网关</p>
-<p>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、<a href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错能力</a></p>
-<p>微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由</p>
-</div>
-    <nav class="md-post__action">
-      <a href="2023/12/31/microservice.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="_1"><a class="toclink" href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错</a></h2>
-<h4 id="definition"><a class="toclink" href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html#definition">Definition</a></h4>
-<p>系统依赖的某个服务发生延迟或者故障，数秒内导致所有应用资源（线程，队列等）被耗尽，造成所谓的雪崩效应 (Cascading Failure)，导致整个系统拒绝对外提供服务。</p>
-<div class="admonition info">
-<p class="admonition-title">principle</p>
-<p>Design for failure</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Solution</p>
-<p>Timeout &amp; Retry </p>
-<p>Rate limiting &amp; Load Shield</p>
-<p>Circuit Breaker</p>
-<p>Bulkhead Isolation</p>
-<p>Fallback</p>
-<pre><code>自定义处理
-
-fail-silent
-
-fail-fast
-</code></pre>
-</div>
-    <nav class="md-post__action">
-      <a href="2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
       
         
           
@@ -952,7 +704,7 @@ fail-fast
 
 
 <nav class="md-pagination">
-  <span class="md-pagination__current">1</span> <a class="md-pagination__link" href="page/2/index.html">2</a>
+  <span class="md-pagination__current">1</span> <a class="md-pagination__link" href="page/2/index.html">2</a> <a class="md-pagination__link" href="page/3/index.html">3</a>
 </nav>
         
       
@@ -989,7 +741,7 @@ fail-fast
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.tabs"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.tabs", "search.suggest"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.d7c377c4.min.js"></script>

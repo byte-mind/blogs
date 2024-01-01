@@ -142,6 +142,45 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -428,7 +467,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
                           <span class="md-ellipsis">
                             
-                              1 min read
+                              2 min read
                             
                           </span>
                         </div>
@@ -466,6 +505,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#cache_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache 策略
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache Issue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache 淘汰算法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis 淘汰
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       持久化
@@ -478,6 +553,15 @@
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       集群
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本数据类型
     </span>
   </a>
   
@@ -510,10 +594,98 @@
 <p class="admonition-title">supported applications</p>
 </div>
 <p><a href="cache.html#redis">分布式锁</a></p>
-<p><a href="../../../2024/01/01/rate-limit.html#redis">限流</a></p>
+<p><a href="../../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#redis">限流</a></p>
 <p>消息队列</p>
 <p>延时队列</p>
 <p>分布式session</p>
+<h5 id="cache_1">Cache 策略</h5>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Write</th>
+<th>Read</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache Aside</td>
+<td>update DB； delete cache item；</td>
+<td>read from cache; missed then read from db ; put data into cache</td>
+<td>考虑强一致场景，写操作需加锁</td>
+</tr>
+<tr>
+<td>Read/Write Through</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Write Behind</td>
+<td>update to Cache, after while, flush to DB</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cache-issue">Cache Issue</h5>
+<ul>
+<li>雪崩
+大量KEY 失效后，大流量直接访问数据库</li>
+</ul>
+<pre><code>对KEY设置随机过期时间
+限流熔断
+数据库读写分离
+</code></pre>
+<ul>
+<li>击穿
+热点KEY 失效后，大流量直接访问数据库</li>
+</ul>
+<pre><code>热点KEY 过期时间设置长
+互斥锁，Cache KEY 访问失败后，需要获取锁，才能访问数据库
+</code></pre>
+<ul>
+<li>穿透
+不存在的KEY，大流量直接访问数据库</li>
+</ul>
+<pre><code>布隆过滤器, 先判断是否KEY存在，不存在就直接返回NULL
+</code></pre>
+<h5 id="cache_2">Cache 淘汰算法</h5>
+<p>FIFO First In First Out</p>
+<p>LFU leastly frequently used</p>
+<pre><code>优点：高频使用的数据，可以较长的保存不被淘汰。
+缺点：无法缓存某一时间点的热点数据。
+</code></pre>
+<p>LRU leastly recently used</p>
+<pre><code>LRU 算法使用页面置换算法，会首先淘汰最长时间未被使用的数据。
+优点：热点数据，可以较长的保存不被淘汰
+缺点：当某一时间节点产生了大量仅访问了一次的数据，热点数据会被淘汰
+</code></pre>
+<p>LRU - K</p>
+<pre><code>LRU-K 算法中需要维护两个队列：历史队列和缓存队列
+历史队列保存着每次访问的页面，当页面访问次数达到了 k 次，该页面出栈，并保存至缓存队列；
+若尚未达到 k 次则继续保存，直至历史队列也满了，那就根据一定的缓存策略（FIFO、LRU、LFU）进行淘汰；
+缓存队列则是保存已经访问 k 次的页面，当该队列满了之后，则淘汰最后一个页面.
+
+LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1” 提升为 “K”。
+优点：避免了仅访问 1 次就能淘汰其余缓存的 “缓存污染” 问题，提高了缓存命中率。
+缺点：多维护了一个历史队列，消耗内存较高
+</code></pre>
+<p>LRU - 2Q</p>
+<h5 id="redis_1">Redis 淘汰</h5>
+<p>Redis并不会立马删除过期的数据。Redis 采用「惰性删除」+「定期删除」的组合策略，对过期数据进行清理。</p>
+<p><strong>惰性删除</strong>
+当有客户端的请求查询该 key 时，服务端会检查下 key 是否过期，如果过期，则删除该 key</p>
+<p><strong>定期删除</strong>
+会将设置了过期时间的 key 放入到一个独立的字典中，在「定期删除」策略中，会定时遍历这个字典，删除过期的数据</p>
+<p>实际内存超出 maxmemory 时，Redis 提供了如下几种策略</p>
+<p>noeviction</p>
+<p>volatile-lru: 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰</p>
+<p>volatile-ttl: key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰</p>
+<p>volatile-random:</p>
+<p>allkeys-lru: 没有设置过期时间的 key 也会被淘汰</p>
+<p>allkeys-random: 随机的 key.</p>
 <h5 id="_1">持久化</h5>
 <p>snapshotting, RDB</p>
 <p>append-only, AOF</p>
@@ -532,6 +704,30 @@
 <li>Cluster</li>
 </ul>
 <p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
+<h5 id="_3"><a href="https://javaguide.cn/database/redis/redis-data-structures-01.html">基本数据类型</a></h5>
+<table>
+<thead>
+<tr>
+<th>String</th>
+<th>List</th>
+<th>Set</th>
+<th>Hash</th>
+<th>Zset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDS simple dynamic string</td>
+<td>Linkedlist</td>
+<td>Dict, ZipList</td>
+<td>Dict, IntSet</td>
+<td>ZipList, SkipList</td>
+</tr>
+</tbody>
+</table>
+<p>SkipList</p>
+<p>跳跃表以链表+多层索引的结构， 效率和平衡树媲美 —— 查找、删除、添加等操作都可以在对数期望时间下完成， 并且比起平衡树来说， 跳跃表的实现要简单直观得多</p>
+<p>ZipList</p>
 
 
 
@@ -583,7 +779,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["toc.integrate", "navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["toc.integrate", "navigation.tabs", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.d7c377c4.min.js"></script>

@@ -140,6 +140,45 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -357,6 +396,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2023
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="2023.html" class="md-nav__link md-nav__link--active">
         
   
@@ -366,6 +416,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      B Tree
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-native" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Native
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-integration-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous Integration &amp; Delivery
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroService
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -489,7 +603,7 @@
           
           <li class="md-meta__item">
             
-              1 min read
+              2 min read
             
           </li>
         
@@ -508,10 +622,98 @@
 <p class="admonition-title">supported applications</p>
 </div>
 <p><a href="../2023/12/31/cache.html#redis">分布式锁</a></p>
-<p><a href="../2024/01/01/rate-limit.html#redis">限流</a></p>
+<p><a href="../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#redis">限流</a></p>
 <p>消息队列</p>
 <p>延时队列</p>
 <p>分布式session</p>
+<h6 id="cache_1"><a class="toclink" href="../2023/12/31/cache.html#cache_1">Cache 策略</a></h6>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Write</th>
+<th>Read</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache Aside</td>
+<td>update DB； delete cache item；</td>
+<td>read from cache; missed then read from db ; put data into cache</td>
+<td>考虑强一致场景，写操作需加锁</td>
+</tr>
+<tr>
+<td>Read/Write Through</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Write Behind</td>
+<td>update to Cache, after while, flush to DB</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6 id="cache-issue"><a class="toclink" href="../2023/12/31/cache.html#cache-issue">Cache Issue</a></h6>
+<ul>
+<li>雪崩
+大量KEY 失效后，大流量直接访问数据库</li>
+</ul>
+<pre><code>对KEY设置随机过期时间
+限流熔断
+数据库读写分离
+</code></pre>
+<ul>
+<li>击穿
+热点KEY 失效后，大流量直接访问数据库</li>
+</ul>
+<pre><code>热点KEY 过期时间设置长
+互斥锁，Cache KEY 访问失败后，需要获取锁，才能访问数据库
+</code></pre>
+<ul>
+<li>穿透
+不存在的KEY，大流量直接访问数据库</li>
+</ul>
+<pre><code>布隆过滤器, 先判断是否KEY存在，不存在就直接返回NULL
+</code></pre>
+<h6 id="cache_2"><a class="toclink" href="../2023/12/31/cache.html#cache_2">Cache 淘汰算法</a></h6>
+<p>FIFO First In First Out</p>
+<p>LFU leastly frequently used</p>
+<pre><code>优点：高频使用的数据，可以较长的保存不被淘汰。
+缺点：无法缓存某一时间点的热点数据。
+</code></pre>
+<p>LRU leastly recently used</p>
+<pre><code>LRU 算法使用页面置换算法，会首先淘汰最长时间未被使用的数据。
+优点：热点数据，可以较长的保存不被淘汰
+缺点：当某一时间节点产生了大量仅访问了一次的数据，热点数据会被淘汰
+</code></pre>
+<p>LRU - K</p>
+<pre><code>LRU-K 算法中需要维护两个队列：历史队列和缓存队列
+历史队列保存着每次访问的页面，当页面访问次数达到了 k 次，该页面出栈，并保存至缓存队列；
+若尚未达到 k 次则继续保存，直至历史队列也满了，那就根据一定的缓存策略（FIFO、LRU、LFU）进行淘汰；
+缓存队列则是保存已经访问 k 次的页面，当该队列满了之后，则淘汰最后一个页面.
+
+LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1” 提升为 “K”。
+优点：避免了仅访问 1 次就能淘汰其余缓存的 “缓存污染” 问题，提高了缓存命中率。
+缺点：多维护了一个历史队列，消耗内存较高
+</code></pre>
+<p>LRU - 2Q</p>
+<h6 id="redis_1"><a class="toclink" href="../2023/12/31/cache.html#redis_1">Redis 淘汰</a></h6>
+<p>Redis并不会立马删除过期的数据。Redis 采用「惰性删除」+「定期删除」的组合策略，对过期数据进行清理。</p>
+<p><strong>惰性删除</strong>
+当有客户端的请求查询该 key 时，服务端会检查下 key 是否过期，如果过期，则删除该 key</p>
+<p><strong>定期删除</strong>
+会将设置了过期时间的 key 放入到一个独立的字典中，在「定期删除」策略中，会定时遍历这个字典，删除过期的数据</p>
+<p>实际内存超出 maxmemory 时，Redis 提供了如下几种策略</p>
+<p>noeviction</p>
+<p>volatile-lru: 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰</p>
+<p>volatile-ttl: key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰</p>
+<p>volatile-random:</p>
+<p>allkeys-lru: 没有设置过期时间的 key 也会被淘汰</p>
+<p>allkeys-random: 随机的 key.</p>
 <h6 id="_1"><a class="toclink" href="../2023/12/31/cache.html#_1">持久化</a></h6>
 <p>snapshotting, RDB</p>
 <p>append-only, AOF</p>
@@ -530,6 +732,30 @@
 <li>Cluster</li>
 </ul>
 <p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
+<h6 id="_3"><a class="toclink" href="../2023/12/31/cache.html#_3"><a href="https://javaguide.cn/database/redis/redis-data-structures-01.html">基本数据类型</a></a></h6>
+<table>
+<thead>
+<tr>
+<th>String</th>
+<th>List</th>
+<th>Set</th>
+<th>Hash</th>
+<th>Zset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDS simple dynamic string</td>
+<td>Linkedlist</td>
+<td>Dict, ZipList</td>
+<td>Dict, IntSet</td>
+<td>ZipList, SkipList</td>
+</tr>
+</tbody>
+</table>
+<p>SkipList</p>
+<p>跳跃表以链表+多层索引的结构， 效率和平衡树媲美 —— 查找、删除、添加等操作都可以在对数期望时间下完成， 并且比起平衡树来说， 跳跃表的实现要简单直观得多</p>
+<p>ZipList</p>
     <nav class="md-post__action">
       <a href="../2023/12/31/cache.html">
         Continue reading
@@ -746,187 +972,6 @@
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="_1"><a class="toclink" href="../2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错</a></h2>
-<h4 id="definition"><a class="toclink" href="../2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html#definition">Definition</a></h4>
-<p>系统依赖的某个服务发生延迟或者故障，数秒内导致所有应用资源（线程，队列等）被耗尽，造成所谓的雪崩效应 (Cascading Failure)，导致整个系统拒绝对外提供服务。</p>
-<div class="admonition info">
-<p class="admonition-title">principle</p>
-<p>Design for failure</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Solution</p>
-<p>Timeout &amp; Retry </p>
-<p>Rate limiting &amp; Load Shield</p>
-<p>Circuit Breaker</p>
-<p>Bulkhead Isolation</p>
-<p>Fallback</p>
-<pre><code>自定义处理
-
-fail-silent
-
-fail-fast
-</code></pre>
-</div>
-    <nav class="md-post__action">
-      <a href="../2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-30 00:00:00">December 30, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="db"><a class="toclink" href="../2023/12/30/db.html">DB</a></h2>
-<h4 id="mysql"><a class="toclink" href="../2023/12/30/db.html#mysql">MySQL</a></h4>
-<div class="admonition info">
-<p class="admonition-title">Lock</p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Desc</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>table-level</td>
-<td>Low Cost; Most Effectivive;  Highest lock conflicting</td>
-</tr>
-<tr>
-<td>row-level</td>
-<td>high cost; very slow; Lowest lock conflicting</td>
-</tr>
-<tr>
-<td>page-level</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="admonition info">
-<p class="admonition-title">存储引擎</p>
-</div>
-<p>MySQL 存储引擎采用的是 插件式架构 ，支持多种存储引擎，可以为不同的数据库表设置不同的存储引擎以适应不同场景的需要。存储引擎是基于表的，而不是数据库。</p>
-<p>MyISAM 只有表级锁(table-level locking)，而 InnoDB 支持行级锁(row-level locking)和表级锁,默认为行级锁。</p>
-<p>MyISAM 不提供事务支持，InnoDB 提供事务支持</p>
-<p>MyISAM 不支持外键，而 InnoDB 支持外键， 实际业务中，不建议使用外键，影响性能</p>
-<p>MyISAM 不提供<strong>MVCC</strong>，InnoDB 提供<strong>MVCC</strong></p>
-<p>虽然 MyISAM 引擎和 InnoDB 引擎都是使用 B+Tree 作为索引结构，但是两者的实现方式不太一样。</p>
-<p>MyISAM 不支持数据库异常崩溃后的安全恢复，而 InnoDB 支持</p>
-<p>InnoDB 的性能比 MyISAM 更强大</p>
-<div class="admonition info">
-<p class="admonition-title">索引</p>
-</div>
-<p><a href="../2023/12/31/b-tree.html">B+ tree</a> </p>
-<p>聚簇索引（聚集索引）：索引结构和数据一起存放的索引，InnoDB 中的主键索引就属于聚簇索引。
-非聚簇索引（非聚集索引）：索引结构和数据分开存放的索引，二级索引(辅助索引)就属于非聚簇索引。
-MySQL 的 MyISAM 引擎，不管主键还是非主键，使用的都是非聚簇索引。</p>
-<div class="admonition info">
-<p class="admonition-title">回滚的原理</p>
-</div>
-<p>回滚原理是基于<strong>undo log</strong>实现的。 当一个事务开始时，MySQL会创建一个新的undo日志记录。 当事务中的每一个操作被执行时，都会在<a href="../2023/12/30/db.html#undo-log"><strong>undo log</strong></a>中添加一条相反的操作。 如果事务失败，MySQL就会按照<strong>undo log</strong>中的记录，逆序执行这些操作，把数据恢复到事务开始之前的状态。</p>
-<div class="admonition info">
-<p class="admonition-title">同步</p>
-</div>
-<p>Master 同步 Slave, 读写分离 ， 故障切换， 高可用HA， 架构扩展</p>
-<ul>
-<li>
-<p>同步方式</p>
-<ul>
-<li>一主多从</li>
-<li>多主一从 </li>
-<li>双主复制</li>
-<li>级联复制(半同步)<ul>
-<li>Slave 通过 slave 同步，不直接与Master 同步</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>同步原理</p>
-<ul>
-<li>Master 启动 Log Dump Thread, read <strong>bin log</strong> and lock it, then release once complete reading</li>
-<li>Slave 启动 IO Thread , read <strong>bin log</strong> on Master and save it to <strong>relay-log</strong></li>
-<li>Slave 启动 SQL Thread, read <strong>relay log</strong> and execute</li>
-</ul>
-</li>
-<li></li>
-</ul>
-<div class="admonition info">
-<p class="admonition-title">日志</p>
-</div>
-<h6 id="redo-log"><a class="toclink" href="../2023/12/30/db.html#redo-log">redo log</a></h6>
-<p>MySQL的<a href="../2024/01/01/wal%E6%9C%BA%E5%88%B6.html"><strong>WAL机制</strong></a>。因为MySQL进行更新操作，为了能够快速响应，所以采用了异步写回磁盘的技术，写入内存后就返回。但是这样，会存在crash后内存数据丢失的隐患，而redo log具备crash safe的能力。</p>
-<pre><code>redo log 是重做日志。
-它记录了数据页上的改动。
-它指事务中修改了的数据，将会备份存储。
-发生数据库服务器宕机、或者脏页未写入磁盘，可以通过redo log恢复。
-它是Innodb存储引擎独有的
-
-redo log每次更新操作完成后，就一定会写入的，如果写入失败，说明此次操作失败，事务也不可能提交。
-</code></pre>
-<h6 id="bin-log"><a class="toclink" href="../2023/12/30/db.html#bin-log">bin log 日志</a></h6>
-<p>bin log是归档日志，属于MySQL Server层的日志。可以实现主从复制和数据恢复两个作用。
-当需要恢复数据时，可以取出某个时间范围内的bin log进行重放恢复。
-但是bin log不可以做crash safe，因为crash之前，bin log可能没有写入完全MySQL就挂了。所以需要配合redo log才可以进行crash safe。</p>
-<p><strong>binlog日志有三种格式</strong></p>
-<p>Statement：基于SQL语句的复制((statement-based replication,SBR)) 每一条会修改数据的sql都会记录在binlog中
-Row:基于行的复制。(row-based replication,RBR) 不记录sql语句上下文相关信息，仅保存哪条记录被修改
-Mixed:混合模式复制。(mixed-based replication,MBR) Statement与Row的结合</p>
-<p><strong>binlog 刷盘机制</strong></p>
-<p><img alt="" src="../20240101100228.png" /></p>
-<h6 id="undo-log"><a class="toclink" href="../2023/12/30/db.html#undo-log">undo log</a></h6>
-<p>用于记录数据被修改前的信息。
-它跟redo log重做日志所记录的相反，重做日志记录数据被修改后的信息。undo log主要记录的是数据的逻辑变化，为了在发生错误时回滚之前的操作，需要将之前的操作都记录下来，这样发生错误时才可以回滚。</p>
-    <nav class="md-post__action">
-      <a href="../2023/12/30/db.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
       
         
           
@@ -934,7 +979,7 @@ Mixed:混合模式复制。(mixed-based replication,MBR) Statement与Row的结�
 
 
 <nav class="md-pagination">
-  
+  <span class="md-pagination__current">1</span> <a class="md-pagination__link" href="2023/page/2.html">2</a>
 </nav>
         
       
@@ -971,7 +1016,7 @@ Mixed:混合模式复制。(mixed-based replication,MBR) Statement与Row的结�
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.tabs", "search.suggest"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
