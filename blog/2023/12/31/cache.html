@@ -327,6 +327,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../archive/2024.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="../../../archive/2023.html" class="md-nav__link">
         
   
@@ -426,6 +449,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Redis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      持久化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      集群
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
           
         </div>
@@ -437,6 +501,37 @@
 
 
 <h1 id="cache">Cache</h1>
+<h3 id="redis">Redis</h3>
+<div class="admonition info">
+<p class="admonition-title">why so fast</p>
+</div>
+<p><img alt="" src="../../../20240101104811.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">supported applications</p>
+</div>
+<p><a href="cache.html#redis">分布式锁</a></p>
+<p><a href="../../../2024/01/01/rate-limit.html#redis">限流</a></p>
+<p>消息队列</p>
+<p>延时队列</p>
+<p>分布式session</p>
+<h5 id="_1">持久化</h5>
+<p>snapshotting, RDB</p>
+<p>append-only, AOF</p>
+<p>RDB &amp; AOF</p>
+<h5 id="_2">集群</h5>
+<ul>
+<li>
+<p>Master Slave</p>
+</li>
+<li>
+<p>Sentinel</p>
+</li>
+</ul>
+<p>主从复制基础上加入了哨兵节点，实现了自动故障转移,会监控主节点和从节点的运行状态。当主节点发生故障时，哨兵节点会自动从从节点中选举出一个新的主节点，并通知其他从节点和客户端，实现故障转移。</p>
+<ul>
+<li>Cluster</li>
+</ul>
+<p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
 
 
 

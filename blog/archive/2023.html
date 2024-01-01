@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="2024.html">
       
       
       
@@ -318,6 +318,29 @@
                 
   
   
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="2024.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -476,6 +499,37 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="cache"><a class="toclink" href="../2023/12/31/cache.html">Cache</a></h2>
+<h4 id="redis"><a class="toclink" href="../2023/12/31/cache.html#redis">Redis</a></h4>
+<div class="admonition info">
+<p class="admonition-title">why so fast</p>
+</div>
+<p><img alt="" src="../20240101104811.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">supported applications</p>
+</div>
+<p><a href="../2023/12/31/cache.html#redis">分布式锁</a></p>
+<p><a href="../2024/01/01/rate-limit.html#redis">限流</a></p>
+<p>消息队列</p>
+<p>延时队列</p>
+<p>分布式session</p>
+<h6 id="_1"><a class="toclink" href="../2023/12/31/cache.html#_1">持久化</a></h6>
+<p>snapshotting, RDB</p>
+<p>append-only, AOF</p>
+<p>RDB &amp; AOF</p>
+<h6 id="_2"><a class="toclink" href="../2023/12/31/cache.html#_2">集群</a></h6>
+<ul>
+<li>
+<p>Master Slave</p>
+</li>
+<li>
+<p>Sentinel</p>
+</li>
+</ul>
+<p>主从复制基础上加入了哨兵节点，实现了自动故障转移,会监控主节点和从节点的运行状态。当主节点发生故障时，哨兵节点会自动从从节点中选举出一个新的主节点，并通知其他从节点和客户端，实现故障转移。</p>
+<ul>
+<li>Cluster</li>
+</ul>
+<p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
     <nav class="md-post__action">
       <a href="../2023/12/31/cache.html">
         Continue reading
@@ -754,7 +808,7 @@ fail-fast
           
           <li class="md-meta__item">
             
-              1 min read
+              2 min read
             
           </li>
         
@@ -791,6 +845,17 @@ fail-fast
 </table>
 </div>
 <div class="admonition info">
+<p class="admonition-title">存储引擎</p>
+</div>
+<p>MySQL 存储引擎采用的是 插件式架构 ，支持多种存储引擎，可以为不同的数据库表设置不同的存储引擎以适应不同场景的需要。存储引擎是基于表的，而不是数据库。</p>
+<p>MyISAM 只有表级锁(table-level locking)，而 InnoDB 支持行级锁(row-level locking)和表级锁,默认为行级锁。</p>
+<p>MyISAM 不提供事务支持，InnoDB 提供事务支持</p>
+<p>MyISAM 不支持外键，而 InnoDB 支持外键， 实际业务中，不建议使用外键，影响性能</p>
+<p>MyISAM 不提供<strong>MVCC</strong>，InnoDB 提供<strong>MVCC</strong></p>
+<p>虽然 MyISAM 引擎和 InnoDB 引擎都是使用 B+Tree 作为索引结构，但是两者的实现方式不太一样。</p>
+<p>MyISAM 不支持数据库异常崩溃后的安全恢复，而 InnoDB 支持</p>
+<p>InnoDB 的性能比 MyISAM 更强大</p>
+<div class="admonition info">
 <p class="admonition-title">索引</p>
 </div>
 <p><a href="../2023/12/31/b-tree.html">B+ tree</a> </p>
@@ -800,7 +865,7 @@ MySQL 的 MyISAM 引擎，不管主键还是非主键，使用的都是非聚簇
 <div class="admonition info">
 <p class="admonition-title">回滚的原理</p>
 </div>
-<p>回滚原理是基于<strong>undo log</strong>实现的。 当一个事务开始时，MySQL会创建一个新的undo日志记录。 当事务中的每一个操作被执行时，都会在<strong>undo log</strong>中添加一条相反的操作。 如果事务失败，MySQL就会按照<strong>undo log</strong>中的记录，逆序执行这些操作，把数据恢复到事务开始之前的状态。</p>
+<p>回滚原理是基于<strong>undo log</strong>实现的。 当一个事务开始时，MySQL会创建一个新的undo日志记录。 当事务中的每一个操作被执行时，都会在<a href="../2023/12/30/db.html#undo-log"><strong>undo log</strong></a>中添加一条相反的操作。 如果事务失败，MySQL就会按照<strong>undo log</strong>中的记录，逆序执行这些操作，把数据恢复到事务开始之前的状态。</p>
 <div class="admonition info">
 <p class="admonition-title">同步</p>
 </div>
@@ -828,6 +893,32 @@ MySQL 的 MyISAM 引擎，不管主键还是非主键，使用的都是非聚簇
 </li>
 <li></li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">日志</p>
+</div>
+<h6 id="redo-log"><a class="toclink" href="../2023/12/30/db.html#redo-log">redo log</a></h6>
+<p>MySQL的<a href="../2024/01/01/wal%E6%9C%BA%E5%88%B6.html"><strong>WAL机制</strong></a>。因为MySQL进行更新操作，为了能够快速响应，所以采用了异步写回磁盘的技术，写入内存后就返回。但是这样，会存在crash后内存数据丢失的隐患，而redo log具备crash safe的能力。</p>
+<pre><code>redo log 是重做日志。
+它记录了数据页上的改动。
+它指事务中修改了的数据，将会备份存储。
+发生数据库服务器宕机、或者脏页未写入磁盘，可以通过redo log恢复。
+它是Innodb存储引擎独有的
+
+redo log每次更新操作完成后，就一定会写入的，如果写入失败，说明此次操作失败，事务也不可能提交。
+</code></pre>
+<h6 id="bin-log"><a class="toclink" href="../2023/12/30/db.html#bin-log">bin log 日志</a></h6>
+<p>bin log是归档日志，属于MySQL Server层的日志。可以实现主从复制和数据恢复两个作用。
+当需要恢复数据时，可以取出某个时间范围内的bin log进行重放恢复。
+但是bin log不可以做crash safe，因为crash之前，bin log可能没有写入完全MySQL就挂了。所以需要配合redo log才可以进行crash safe。</p>
+<p><strong>binlog日志有三种格式</strong></p>
+<p>Statement：基于SQL语句的复制((statement-based replication,SBR)) 每一条会修改数据的sql都会记录在binlog中
+Row:基于行的复制。(row-based replication,RBR) 不记录sql语句上下文相关信息，仅保存哪条记录被修改
+Mixed:混合模式复制。(mixed-based replication,MBR) Statement与Row的结合</p>
+<p><strong>binlog 刷盘机制</strong></p>
+<p><img alt="" src="../20240101100228.png" /></p>
+<h6 id="undo-log"><a class="toclink" href="../2023/12/30/db.html#undo-log">undo log</a></h6>
+<p>用于记录数据被修改前的信息。
+它跟redo log重做日志所记录的相反，重做日志记录数据被修改后的信息。undo log主要记录的是数据的逻辑变化，为了在发生错误时回滚之前的操作，需要将之前的操作都记录下来，这样发生错误时才可以回滚。</p>
     <nav class="md-post__action">
       <a href="../2023/12/30/db.html">
         Continue reading
