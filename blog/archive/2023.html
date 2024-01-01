@@ -460,9 +460,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#continuous-integration-delivery" class="md-nav__link">
+  <a href="#devops" class="md-nav__link">
     <span class="md-ellipsis">
-      Continuous Integration &amp; Delivery
+      DevOps
     </span>
   </a>
   
@@ -538,9 +538,7 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="b-tree"><a class="toclink" href="../2023/12/31/b-tree.html">B Tree</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Binary Search Tree 也叫 B-</p>
-</div>
+<h6 id="binary-search-tree-b-"><a class="toclink" href="../2023/12/31/b-tree.html#binary-search-tree-b-">"Binary Search Tree 也叫 B-"</a></h6>
 <ul>
 <li>
 <p>左子树所有节点的值均小于根节点的值</p>
@@ -552,9 +550,7 @@
 <p>左右子树也分别为二叉查找树</p>
 </li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">红黑树</p>
-</div>
+<h6 id="_1"><a class="toclink" href="../2023/12/31/b-tree.html#_1">"红黑树"</a></h6>
 <p>红黑树是一种自平衡二叉查找树，通过在插入和删除节点时进行颜色变换和旋转操作，使得树始终保持平衡状态，它具有以下特点：</p>
 <ul>
 <li>
@@ -574,9 +570,7 @@
 </li>
 </ul>
 <p>数据在内存中，红黑树的表现很好.</p>
-<div class="admonition info">
-<p class="admonition-title">B+ </p>
-</div>
+<h6 id="info-b"><a class="toclink" href="../2023/12/31/b-tree.html#info-b">info "B+ "</a></h6>
 <ul>
 <li>B 树的所有节点既存放键(key) 也存放数据(data)，而 B+树只有叶子节点存放 key 和 data，其他内节点只存放 key。</li>
 <li>B 树的叶子节点都是独立的;B+树的叶子节点有一条引用链指向与它相邻的叶子节点。</li>
@@ -786,9 +780,7 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="cloud-native"><a class="toclink" href="../2023/12/31/cloud-native.html">Cloud Native</a></h2>
-<div class="admonition info">
-<p class="admonition-title">Intro</p>
-</div>
+<h4 id="intro"><a class="toclink" href="../2023/12/31/cloud-native.html#intro">"Intro"</a></h4>
 <p>满足云原生最佳技术实践和管理实践要求，应用从需求提出开始就使用云原生资源和服务能力，并最终能够持续交付到云平台的应用；同时在该应用交付完成后还需要具备足够的管控治理能力和可观测性。</p>
 <p>Cloud Native 包含</p>
 <ul>
@@ -796,7 +788,7 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
 <p><a href="../2023/12/31/microservice.html">微服务</a>， 敏捷基础管理</p>
 </li>
 <li>
-<p>DevOps, <a href="../2023/12/31/continuous-integration--delivery.html">CI&amp;CD</a>, Conways Law, etc</p>
+<p>DevOps, <a href="./ContinuousDelivery.md">CI&amp;CD</a>, Conways Law, etc</p>
 </li>
 <li>
 <p>应用容器化 (software stack to be containerized)</p>
@@ -823,39 +815,15 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
 <p>声明式API (declarative API)</p>
 </li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">Why</p>
-<table>
-<thead>
-<tr>
-<th>Req</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>更快的上线需求</td>
-<td>CI&amp;CD</td>
-</tr>
-<tr>
-<td>细致的故障探测和发现</td>
-<td><a href="../2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>故障能自动隔离</td>
-<td><a href="../2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>故障可以自动恢复</td>
-<td><a href="../2023/12/31/microservice.html">微服务</a></td>
-</tr>
-<tr>
-<td>水平扩容</td>
-<td><a href="../2023/12/31/microservice.html">微服务</a></td>
-</tr>
-</tbody>
-</table>
-</div>
+<h4 id="info-why"><a class="toclink" href="../2023/12/31/cloud-native.html#info-why">info "Why"</a></h4>
+<pre><code>| Req                  | Solution |
+| -------------------- | -------- |
+| 更快的上线需求       | CI&amp;CD    |
+| 细致的故障探测和发现 | [微服务](Microservices.md)   |
+| 故障能自动隔离       | [微服务](Microservices.md)   |
+| 故障可以自动恢复     | [微服务](Microservices.md)   |
+| 水平扩容             | [微服务](Microservices.md)   |
+</code></pre>
     <nav class="md-post__action">
       <a href="../2023/12/31/cloud-native.html">
         Continue reading
@@ -885,9 +853,11 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="continuous-integration-delivery"><a class="toclink" href="../2023/12/31/continuous-integration--delivery.html">Continuous Integration &amp; Delivery</a></h2>
+    <h2 id="devops"><a class="toclink" href="../2023/12/31/devops.html">DevOps</a></h2>
+<p><img alt="" src="../20240101170634.png" /></p>
+<h4 id="continuous-integration-delivery"><a class="toclink" href="../2023/12/31/devops.html#continuous-integration-delivery">Continuous Integration &amp; Delivery</a></h4>
     <nav class="md-post__action">
-      <a href="../2023/12/31/continuous-integration--delivery.html">
+      <a href="../2023/12/31/devops.html">
         Continue reading
       </a>
     </nav>
@@ -933,37 +903,31 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
 </div>
 <p><img alt="" src="../20231231135715.png" /></p>
 <h4 id="key"><a class="toclink" href="../2023/12/31/microservice.html#key">Key</a></h4>
-<div class="admonition info">
-<p class="admonition-title">微服务的跨库查询</p>
-<p>微服务拆分后，底层数据库也会拆分。</p>
-<ul>
-<li>
-<p>可以通过数据冗余，但是会带来<strong>数据延迟，数据不一致</strong>的潜在风险，共享的数据放到 ODS 数据层；</p>
-</li>
-<li>
-<p>也可以通过建立领域层来提供Aggregator来解决对应问题；</p>
-</li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">业务域拆分数据库</p>
-<p>微服务在代码层进行拆分，数据库实例还是共享模式；</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务变更</p>
-<p>微服务变更期间对相关调用方和被调用方的影响</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务的领域编排</p>
-<p>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
+<h6 id="_1"><a class="toclink" href="../2023/12/31/microservice.html#_1">"微服务的跨库查询"</a></h6>
+<pre><code>微服务拆分后，底层数据库也会拆分。
+
+- 可以通过数据冗余，但是会带来**数据延迟，数据不一致**的潜在风险，共享的数据放到 ODS 数据层；
+
+- 也可以通过建立领域层来提供Aggregator来解决对应问题；
+</code></pre>
+<h6 id="_2"><a class="toclink" href="../2023/12/31/microservice.html#_2">"业务域拆分数据库"</a></h6>
+<pre><code>微服务在代码层进行拆分，数据库实例还是共享模式；
+</code></pre>
+<h6 id="_3"><a class="toclink" href="../2023/12/31/microservice.html#_3">"微服务变更"</a></h6>
+<pre><code>微服务变更期间对相关调用方和被调用方的影响
+</code></pre>
+<h6 id="_4"><a class="toclink" href="../2023/12/31/microservice.html#_4">"微服务的领域编排"</a></h6>
+<pre><code>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
 比如: 
-<code>对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口</code></p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务网关和API网关</p>
-<p>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、<a href="../2023/12/31/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错能力</a></p>
-<p>微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由</p>
-</div>
+```
+对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口
+```
+</code></pre>
+<h6 id="api"><a class="toclink" href="../2023/12/31/microservice.html#api">"微服务网关和API网关"</a></h6>
+<pre><code>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、[服务容错能力](./ServiceTolernce.md)
+
+微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由
+</code></pre>
     <nav class="md-post__action">
       <a href="../2023/12/31/microservice.html">
         Continue reading

@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="cache.html">
+        <link rel="prev" href="wal%E6%9C%BA%E5%88%B6.html">
       
       
-        <link rel="next" href="../../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">
+        <link rel="next" href="%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81.html">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>B Tree - Byte Mind</title>
+        <title>K8S - Byte Mind</title>
       
     
     
@@ -55,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="B Tree - Byte Mind" >
+        <meta  property="og:title"  content="K8S - Byte Mind" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/blog/posts/BTree.png" >
+        <meta  property="og:image"  content="./assets/images/social/blog/posts/K8S.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,11 +71,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="B Tree - Byte Mind" >
+        <meta  name="twitter:title"  content="K8S - Byte Mind" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/BTree.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/K8S.png" >
       
     
     
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#b-tree" class="md-skip">
+        <a href="#k8s" class="md-skip">
           Skip to content
         </a>
       
@@ -130,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              B Tree
+              K8S
             
           </span>
         </div>
@@ -455,7 +455,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2023-12-31 00:00:00" class="md-ellipsis">December 31, 2023</time>
+                        <time datetime="2024-01-01 00:00:00" class="md-ellipsis">January 1, 2024</time>
                       </div>
                     </li>
                     
@@ -495,27 +495,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#binary-search-tree-b-" class="md-nav__link">
+  <a href="#etcd" class="md-nav__link">
     <span class="md-ellipsis">
-      "Binary Search Tree 也叫 B-"
+      ETCD
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#k8s_1" class="md-nav__link">
     <span class="md-ellipsis">
-      "红黑树"
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#info-b" class="md-nav__link">
-    <span class="md-ellipsis">
-      info "B+ "
+      K8S 集群管理
     </span>
   </a>
   
@@ -531,67 +522,24 @@
     <article class="md-content__inner md-typeset">
       
         
-  
-  
-
-<nav class="md-tags" >
-  
-    
-    
-    
-      <a href="../../../tags.html#" class="md-tag">算法</a>
-    
-  
-    
-    
-    
-      <a href="../../../tags.html#" class="md-tag">数据结构</a>
-    
-  
-</nav>
 
 
-
-<h1 id="b-tree">B Tree</h1>
-<h5 id="binary-search-tree-b-">"Binary Search Tree 也叫 B-"</h5>
-<ul>
-<li>
-<p>左子树所有节点的值均小于根节点的值</p>
-</li>
-<li>
-<p>右子树所有节点的值均大于根节点的值</p>
-</li>
-<li>
-<p>左右子树也分别为二叉查找树</p>
-</li>
-</ul>
-<h5 id="_1">"红黑树"</h5>
-<p>红黑树是一种自平衡二叉查找树，通过在插入和删除节点时进行颜色变换和旋转操作，使得树始终保持平衡状态，它具有以下特点：</p>
-<ul>
-<li>
-<p>每个节点非红即黑；</p>
-</li>
-<li>
-<p>根节点总是黑色的；</p>
-</li>
-<li>
-<p>每个叶子节点都是黑色的空节点（NIL 节点）；</p>
-</li>
-<li>
-<p>如果节点是红色的，则它的子节点必须是黑色的（反之不一定）；</p>
-</li>
-<li>
-<p>从根节点到叶节点或空子节点的每条路径，必须包含相同数目的黑色节点（即相同的黑色高度）</p>
-</li>
-</ul>
-<p>数据在内存中，红黑树的表现很好.</p>
-<h5 id="info-b">info "B+ "</h5>
-<ul>
-<li>B 树的所有节点既存放键(key) 也存放数据(data)，而 B+树只有叶子节点存放 key 和 data，其他内节点只存放 key。</li>
-<li>B 树的叶子节点都是独立的;B+树的叶子节点有一条引用链指向与它相邻的叶子节点。</li>
-<li>B 树的检索的过程相当于对范围内的每个节点的关键字做二分查找，可能还没有到达叶子节点，检索就结束了。而 B+树的检索效率就很稳定了，任何查找都是从根节点到叶子节点的过程，叶子节点的顺序检索很明显。在 B 树中进行范围查询时，首先找到要查找的下限，然后对 B 树进行中序遍历，直到找到查找的上限；而 B+树的范围查询，只需要对链表进行遍历即可。</li>
-</ul>
-<p>综上，B+树与 B 树相比，具备更少的 IO 次数、更稳定的查询效率和更适于范围查询这些优势</p>
+<h1 id="k8s">K8S</h1>
+<h3 id="etcd">ETCD</h3>
+<p>是一个管理配置信息和服务发现（service discovery）的项目，它的目标是构建一个高可用的分布式键值（key-value）数据库.</p>
+<h3 id="k8s_1">K8S 集群管理</h3>
+<p>Master节点:</p>
+<pre><code>Master节点运行着集群管理相关的一组进程kube-apiserver、kube-controller-manager和kube-scheduler，这些进程实现了整个集群的资源管理、Pod调度、弹性伸缩、安全控制、系统监控和纠错等管理能力，并且都是全自动完成
+</code></pre>
+<p>工作节点:</p>
+<pre><code>Kubernetes集群架构中运行Pod的服务节点
+</code></pre>
+<p>Pod</p>
+<pre><code>运行于Node节点上，若干相关容器的组合,Pod是Kurbernetes进行创建、调度和管理的最小单位,一个Pod可以包含一个容器或者多个相关容器。
+</code></pre>
+<p>静态pod</p>
+<pre><code>静态pod是由kubelet进行管理的仅存在于特定Node的Pod上，他们不能通过API Server进行管理，无法与ReplicationController、Deployment或者DaemonSet进行关联，并且kubelet无法对他们进行健康检查。静态Pod总是由kubelet进行创建，并且总是在kubelet所在的Node上运行。
+</code></pre>
 
 
 

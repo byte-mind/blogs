@@ -12,7 +12,7 @@
         <link rel="prev" href="%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">
       
       
-        <link rel="next" href="continuous-integration--delivery.html">
+        <link rel="next" href="devops.html">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -510,6 +510,57 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      "微服务的跨库查询"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      "业务域拆分数据库"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      "微服务变更"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      "微服务的领域编排"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      "微服务网关和API网关"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -542,37 +593,31 @@
 </div>
 <p><img alt="" src="../../../20231231135715.png" /></p>
 <h3 id="key">Key</h3>
-<div class="admonition info">
-<p class="admonition-title">微服务的跨库查询</p>
-<p>微服务拆分后，底层数据库也会拆分。</p>
-<ul>
-<li>
-<p>可以通过数据冗余，但是会带来<strong>数据延迟，数据不一致</strong>的潜在风险，共享的数据放到 ODS 数据层；</p>
-</li>
-<li>
-<p>也可以通过建立领域层来提供Aggregator来解决对应问题；</p>
-</li>
-</ul>
-</div>
-<div class="admonition info">
-<p class="admonition-title">业务域拆分数据库</p>
-<p>微服务在代码层进行拆分，数据库实例还是共享模式；</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务变更</p>
-<p>微服务变更期间对相关调用方和被调用方的影响</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务的领域编排</p>
-<p>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
+<h5 id="_1">"微服务的跨库查询"</h5>
+<pre><code>微服务拆分后，底层数据库也会拆分。
+
+- 可以通过数据冗余，但是会带来**数据延迟，数据不一致**的潜在风险，共享的数据放到 ODS 数据层；
+
+- 也可以通过建立领域层来提供Aggregator来解决对应问题；
+</code></pre>
+<h5 id="_2">"业务域拆分数据库"</h5>
+<pre><code>微服务在代码层进行拆分，数据库实例还是共享模式；
+</code></pre>
+<h5 id="_3">"微服务变更"</h5>
+<pre><code>微服务变更期间对相关调用方和被调用方的影响
+</code></pre>
+<h5 id="_4">"微服务的领域编排"</h5>
+<pre><code>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
 比如: 
-<code>对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口</code></p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">微服务网关和API网关</p>
-<p>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、<a href="%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99.html">服务容错能力</a></p>
-<p>微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由</p>
-</div>
+```
+对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口
+```
+</code></pre>
+<h5 id="api">"微服务网关和API网关"</h5>
+<pre><code>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、[服务容错能力](./ServiceTolernce.md)
+
+微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由
+</code></pre>
 
 
 
