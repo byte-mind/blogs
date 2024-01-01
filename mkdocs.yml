@@ -17,6 +17,7 @@ theme:
   features:
     - toc.integrate
     - navigation.tabs
+    - search.suggest
     # - navigation.tabs.sticky
 
 nav:
@@ -24,7 +25,12 @@ nav:
     - blog/index.md
 
 plugins:
-  - blog
+  - search
+  - blog:
+      blog_toc: true
+      pagination: true
+      pagination_per_page: 5
+      pagination_keep_content: true
   - social
   - tags:
       tags_file: blog/tags.md
