@@ -436,6 +436,108 @@
     <div class="md-post__meta md-meta">
       <ul class="md-meta__list">
         <li class="md-meta__item">
+          <time datetime="2024-01-01 00:00:00">January 1, 2024</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="interview"><a class="toclink" href="../../2024/01/01/interview.html">interview</a></h2>
+<h4 id="db"><a class="toclink" href="../../2024/01/01/interview.html#db"><a href="../../2023/12/30/db.html">DB 相关</a></a></h4>
+<ul>
+<li>数据一致性</li>
+<li>MySQL 存储引擎</li>
+<li>MySQL 索引</li>
+<li>MySQL 回滚</li>
+<li>MySQL 日志</li>
+<li>MySQL HA</li>
+</ul>
+<h4 id="cache"><a class="toclink" href="../../2024/01/01/interview.html#cache"><a href="../../2023/12/31/cache.html">cache 相关</a></a></h4>
+<ul>
+<li>缓存雪崩</li>
+<li>缓存击穿</li>
+<li>缓存穿透</li>
+</ul>
+<h5 id="redis"><a class="toclink" href="../../2024/01/01/interview.html#redis"><a href="../../2023/12/31/cache.html#redis">Redis</a></a></h5>
+<ul>
+<li>淘汰策略</li>
+<li>集群</li>
+<li>分布式锁</li>
+</ul>
+<h4 id="_1"><a class="toclink" href="../../2024/01/01/interview.html#_1">消息</a></h4>
+<h5 id="kafka"><a class="toclink" href="../../2024/01/01/interview.html#kafka">kafka</a></h5>
+<h4 id="_2"><a class="toclink" href="../../2024/01/01/interview.html#_2">架构</a></h4>
+<h5 id="_3"><a class="toclink" href="../../2024/01/01/interview.html#_3">高可用</a></h5>
+<h6 id="_4"><a class="toclink" href="../../2024/01/01/interview.html#_4"><a href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">限流</a></a></h6>
+<h4 id="_5"><a class="toclink" href="../../2024/01/01/interview.html#_5">支付</a></h4>
+    <nav class="md-post__action">
+      <a href="../../2024/01/01/interview.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-01 00:00:00">January 1, 2024</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="ratelimit"><a class="toclink" href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">Ratelimit</a></h2>
+<h2 id="rate-limit"><a class="toclink" href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#rate-limit"><a href="https://juejin.cn/post/7209504489010430010?searchId=202401011520515375BF8CA32F8E95D53C">Rate Limit</a></a></h2>
+<p>固定窗口限流算法 Fixed Window Rate Limiting Algo</p>
+<p>滑动窗口限流算法 : 单位时间周期分为n个小周期，分别记录每个小周期内接口的访问次数</p>
+<p>漏桶限流算法 : Leaky Bucket Algo , 请求 判断是否达到当前 漏桶 Capacity， 是 refuse， 否 进行服务</p>
+<p>令牌桶算法 : 维护一个固定容量的令牌桶，每秒钟会向令牌桶中放入一定数量的令牌。当有请求到来时，如果令牌桶中有足够的令牌，则请求被允许通过并从令牌桶中消耗一个令牌，否则请求被拒绝。</p>
+<h4 id="nginx"><a class="toclink" href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#nginx"><a href="https://juejin.cn/post/7120044094239277070">Nginx 限流</a></a></h4>
+<p>限制访问频率和限制并发连接数</p>
+<pre><code>ngx_http_limit_req_module
+
+</code></pre>
+<h4 id="redis"><a class="toclink" href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#redis"><a href="https://juejin.cn/post/7033646189845151757">Redis 限流</a></a></h4>
+<p>基于Redis的setnx的操作</p>
+<p>基于Redis的数据结构zset</p>
+<p>基于Redis的令牌桶算法</p>
+<h4 id="sentinel"><a class="toclink" href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#sentinel">Sentinel 限流</a></h4>
+    <nav class="md-post__action">
+      <a href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
           <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
         
         
@@ -740,110 +842,6 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
 </code></pre>
     <nav class="md-post__action">
       <a href="../../2023/12/31/cloud-native.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="devops"><a class="toclink" href="../../2023/12/31/devops.html">DevOps</a></h2>
-<p><img alt="" src="../../20240101170634.png" /></p>
-<h4 id="continuous-integration-delivery"><a class="toclink" href="../../2023/12/31/devops.html#continuous-integration-delivery">Continuous Integration &amp; Delivery</a></h4>
-    <nav class="md-post__action">
-      <a href="../../2023/12/31/devops.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="microservice"><a class="toclink" href="../../2023/12/31/microservice.html">MicroService</a></h2>
-<h4 id="framework"><a class="toclink" href="../../2023/12/31/microservice.html#framework">Framework</a></h4>
-<div class="admonition info inline">
-<p class="admonition-title">Dubbo</p>
-<p>Provider：暴露服务的提供方，可以通过jar或者容器的方式启动服务；</p>
-<p>Consumer：调用远程服务的服务消费方；</p>
-<p>Registry：服务注册中心和发现中心；</p>
-<p>Monitor：统计服务和调用次数，调用时间监控中心（dubbo的控制台页面中可以显示，目前只有一个简单版本）；</p>
-<p>Container：服务运行的容器</p>
-</div>
-<p><img alt="" src="../../20231231134242.png" /></p>
-<hr />
-<div class="admonition info">
-<p class="admonition-title">spring cloud</p>
-<p>服务注册发现    动态路由      负载均衡      配置管理      消息总线        熔断器        分布式链路追踪       大数据操作</p>
-</div>
-<p><img alt="" src="../../20231231135715.png" /></p>
-<h4 id="key"><a class="toclink" href="../../2023/12/31/microservice.html#key">Key</a></h4>
-<h6 id="_1"><a class="toclink" href="../../2023/12/31/microservice.html#_1">"微服务的跨库查询"</a></h6>
-<pre><code>微服务拆分后，底层数据库也会拆分。
-
-- 可以通过数据冗余，但是会带来**数据延迟，数据不一致**的潜在风险，共享的数据放到 ODS 数据层；
-
-- 也可以通过建立领域层来提供Aggregator来解决对应问题；
-</code></pre>
-<h6 id="_2"><a class="toclink" href="../../2023/12/31/microservice.html#_2">"业务域拆分数据库"</a></h6>
-<pre><code>微服务在代码层进行拆分，数据库实例还是共享模式；
-</code></pre>
-<h6 id="_3"><a class="toclink" href="../../2023/12/31/microservice.html#_3">"微服务变更"</a></h6>
-<pre><code>微服务变更期间对相关调用方和被调用方的影响
-</code></pre>
-<h6 id="_4"><a class="toclink" href="../../2023/12/31/microservice.html#_4">"微服务的领域编排"</a></h6>
-<pre><code>领域组合微服务实际上是一类比较特殊的微服务，即这类微服务本身完成多个微服务API接口的组合编排，完成分布式事务管理和协调，完成组合业务规则的实现和处理等。
-比如: 
-```
-对于订单提交这个操作，实际需要调用后端订单中心，预算中心，库存中心多个微服务接口
-```
-</code></pre>
-<h6 id="api"><a class="toclink" href="../../2023/12/31/microservice.html#api">"微服务网关和API网关"</a></h6>
-<pre><code>API网关一般具备独立的服务注册接入，负载均衡和路由能力,统一接入、安全防护、协议适配、流量管控、长短链接支持、[服务容错能力](./ServiceTolernce.md)
-
-微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由
-</code></pre>
-    <nav class="md-post__action">
-      <a href="../../2023/12/31/microservice.html">
         Continue reading
       </a>
     </nav>

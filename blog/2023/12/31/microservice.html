@@ -558,6 +558,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      超时治理
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -579,12 +588,8 @@
 <h3 id="framework">Framework</h3>
 <div class="admonition info inline">
 <p class="admonition-title">Dubbo</p>
-<p>Provider：暴露服务的提供方，可以通过jar或者容器的方式启动服务；</p>
-<p>Consumer：调用远程服务的服务消费方；</p>
-<p>Registry：服务注册中心和发现中心；</p>
-<p>Monitor：统计服务和调用次数，调用时间监控中心（dubbo的控制台页面中可以显示，目前只有一个简单版本）；</p>
-<p>Container：服务运行的容器</p>
 </div>
+<p><a href="../../../2024/01/02/dubbo.html">Dubbo</a></p>
 <p><img alt="" src="../../../20231231134242.png" /></p>
 <hr />
 <div class="admonition info">
@@ -618,6 +623,10 @@
 
 微服务网关是通过和服务注册中心的集成来实现服务注册发现，负载均衡和路由
 </code></pre>
+<h5 id="_5"><a href="https://www.infoq.cn/article/eyrslar53l6hjm5yjgyx">超时治理</a></h5>
+<p>超时时间的设置，和熔断、限流⼀样，是异常状况下系统的⼀种⾃我保护机制，熔断、限流都已经从业务解耦⾄框架层，如利⽤API ⽹关可以统⼀处理微服务之间调⽤的熔断、限流。超时时间的设置，也可以借助运维体系内其他框架，实现解耦并⾃动设定，如下图。</p>
+<p><img alt="" src="../../../20240102073051.png" /></p>
+<p>包含三个模块：推荐设置模块，分析治理模块、UI 界⾯。并对外部依赖监控系统（Prometheus 等）、告警系统、配置中⼼（Consul、etcd）、及统⼀的⽹络调⽤框架（Http）。该系统还可以嵌⼊监控系统内 作为其内部功能来实现，或在响应时间监控的基础性进⾏改造。</p>
 
 
 

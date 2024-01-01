@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="microservice.html">
+        <link rel="prev" href="dubbo.html">
       
-      
-        <link rel="next" href="cloud-native.html">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>DevOps - Byte Mind</title>
+        <title>分布式一致性 - Byte Mind</title>
       
     
     
@@ -55,11 +53,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="DevOps - Byte Mind" >
+        <meta  property="og:title"  content="分布式一致性 - Byte Mind" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/blog/posts/DevOps.png" >
+        <meta  property="og:image"  content="./assets/images/social/blog/posts/Consistence.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -71,11 +69,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="DevOps - Byte Mind" >
+        <meta  name="twitter:title"  content="分布式一致性 - Byte Mind" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/DevOps.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/Consistence.png" >
       
     
     
@@ -96,7 +94,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#devops" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -130,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DevOps
+              分布式一致性
             
           </span>
         </div>
@@ -455,7 +453,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2023-12-31 00:00:00" class="md-ellipsis">December 31, 2023</time>
+                        <time datetime="2024-01-02 00:00:00" class="md-ellipsis">January 2, 2024</time>
                       </div>
                     </li>
                     
@@ -495,18 +493,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#challenges" class="md-nav__link">
+  <a href="#cap" class="md-nav__link">
     <span class="md-ellipsis">
-      Challenges
+      CAP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#continuous-integration-delivery" class="md-nav__link">
+  <a href="#base" class="md-nav__link">
     <span class="md-ellipsis">
-      Continuous Integration &amp; Delivery
+      BASE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pacelc" class="md-nav__link">
+    <span class="md-ellipsis">
+      PACELC
     </span>
   </a>
   
@@ -524,25 +531,20 @@
         
 
 
-<h1 id="devops">DevOps</h1>
-<p><img alt="" src="../../../20240101170634.png" /></p>
-<pre><code>敏捷专注于迭代，增量，小型和快速发布软件以及客户反馈,解决了客户与开发人员之间的差距和冲突
-DevOps解决了开发人员与IT运营之间的空白和冲突
-</code></pre>
-<h3 id="challenges">Challenges</h3>
-<ul>
-<li>自动化测试</li>
-<li>微服务集成测试</li>
-<li>配置管理</li>
-<li>监控和报警</li>
-</ul>
-<h3 id="continuous-integration-delivery">Continuous Integration &amp; Delivery</h3>
-<pre><code>持续集成 (CI) 是一个开发过程，每天多次将代码集成到共享存储库中。借助自动化测试，CI 帮助允许团队及早识别错误、轻松定位问题，提高了软件质量并缩短了交付时间
-</code></pre>
-<pre><code>持续交付 (CD) 与持续集成相集成，以向用户顺利交付产品。它旨在确保代码可以安全地部署到生产环境中。在 CD 环境中，无论是大型系统还是复杂的应用程序，新版本都可以立即按需执行，功能齐全，而且只需要极少的人工干预
-</code></pre>
-<pre><code>持续部署进一步推进了持续交付，其中代码被构建、部署到生产环境、还可以自动测试并在发生错误时快速回滚。具体来说，每个更改都会直接部署到生产环境中，无需额外的人工干预
-</code></pre>
+<h1 id="_1">分布式一致性</h1>
+<h3 id="cap">CAP</h3>
+<p>C：Consistency，一致性，所有数据变动都是同步的。</p>
+<p>A：Availability，可用性，即在可以接受的时间范围内正确地响应用户请求。</p>
+<p>P：Partition tolerance，分区容错性，即某节点或网络分区故障时，系统仍能够提供满足一致性和可用性的服务。</p>
+<h3 id="base">BASE</h3>
+<p>BA：Basically Available，基本可用。</p>
+<p>S：Soft State，软状态，状态可以有一段时间不同步。</p>
+<p>E：Eventually Consistent，最终一致，最终数据是一致的就可以了，而不是时时保持强一致。</p>
+<h3 id="pacelc">PACELC</h3>
+<p><img alt="" src="../../../20240102072312.png" /></p>
+<p>PACELC 定理指出，在复制数据的系统中：
+如果存在分区（“P”），分布式系统可以在可用性和一致性（即“A”和“C”）之间进行权衡；
+else（‘E’），当系统在没有分区的情况下正常运行时，系统可以在延迟（‘L’）和一致性（‘C’）之间进行权衡。</p>
 
 
 
