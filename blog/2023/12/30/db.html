@@ -449,6 +449,25 @@
     <article class="md-content__inner md-typeset">
       
         
+  
+  
+
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../../tags.html#db" class="md-tag">DB</a>
+    
+  
+    
+    
+    
+      <a href="../../../tags.html#mysql" class="md-tag">MySQL</a>
+    
+  
+</nav>
+
 
 
 <h1 id="db">DB</h1>
@@ -467,9 +486,55 @@
 <td>table-level</td>
 <td>Low Cost; Most Effectivive;  Highest lock conflicting</td>
 </tr>
+<tr>
+<td>row-level</td>
+<td>high cost; very slow; Lowest lock conflicting</td>
+</tr>
+<tr>
+<td>page-level</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 </div>
+<div class="admonition info">
+<p class="admonition-title">索引</p>
+</div>
+<p><a href="../31/b-tree.html">B+ tree</a> </p>
+<p>聚簇索引（聚集索引）：索引结构和数据一起存放的索引，InnoDB 中的主键索引就属于聚簇索引。
+非聚簇索引（非聚集索引）：索引结构和数据分开存放的索引，二级索引(辅助索引)就属于非聚簇索引。
+MySQL 的 MyISAM 引擎，不管主键还是非主键，使用的都是非聚簇索引。</p>
+<div class="admonition info">
+<p class="admonition-title">回滚的原理</p>
+</div>
+<p>回滚原理是基于<strong>undo log</strong>实现的。 当一个事务开始时，MySQL会创建一个新的undo日志记录。 当事务中的每一个操作被执行时，都会在<strong>undo log</strong>中添加一条相反的操作。 如果事务失败，MySQL就会按照<strong>undo log</strong>中的记录，逆序执行这些操作，把数据恢复到事务开始之前的状态。</p>
+<div class="admonition info">
+<p class="admonition-title">同步</p>
+</div>
+<p>Master 同步 Slave, 读写分离 ， 故障切换， 高可用HA， 架构扩展</p>
+<ul>
+<li>
+<p>同步方式</p>
+<ul>
+<li>一主多从</li>
+<li>多主一从 </li>
+<li>双主复制</li>
+<li>级联复制(半同步)<ul>
+<li>Slave 通过 slave 同步，不直接与Master 同步</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>同步原理</p>
+<ul>
+<li>Master 启动 Log Dump Thread, read <strong>bin log</strong> and lock it, then release once complete reading</li>
+<li>Slave 启动 IO Thread , read <strong>bin log</strong> on Master and save it to <strong>relay-log</strong></li>
+<li>Slave 启动 SQL Thread, read <strong>relay log</strong> and execute</li>
+</ul>
+</li>
+<li></li>
+</ul>
 
 
 
