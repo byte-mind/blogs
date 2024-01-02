@@ -35,3 +35,20 @@ DevOps解决了开发人员与IT运营之间的空白和冲突
 ```
 持续部署进一步推进了持续交付，其中代码被构建、部署到生产环境、还可以自动测试并在发生错误时快速回滚。具体来说，每个更改都会直接部署到生产环境中，无需额外的人工干预
 ```
+
+### DevSecOps
+
+在DevSecOps中，安全性被嵌入到软件开发过程的每个阶段中，包括规划、编码、组装、测试、发布等所有创作阶段。
+
+软件组成分析**SCA**的重要性以及开源组件漏洞所带来的风险
+
+SAST（Static Application Security Testing，静态应用程序安全测试）对应用程序源代码执行直接的白盒分析。分析是在代码的静态视图上运行的，这意味着代码在审查时没有运行
+
+DAST（Dynamic Application Security Testing，动态应用程序安全测试）对应用程序进行黑盒分析，这意味着它们不能访问代码或实现细节。DAST只检查系统对潜在漏洞测试的请求和响应。换言之，DAST是外部的漏洞扫描程序。
+
+IAST（Interactive Application Security Testing，交互式应用程序安全测试）结合了SAST和DAST的优点。IAST可以像SAST一样看到源代码，也可以像DAST一样看到应用程序运行时的执行流。
+
+[OpenRSAP](https://rasp.baidu.com/doc/)
+
+
+![](20240102195001.png)
