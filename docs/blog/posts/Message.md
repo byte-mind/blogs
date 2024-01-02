@@ -11,6 +11,7 @@ date:
 
 Topic 分成 Partion, 分区仅 1 Consumer 消费，记录 消费 offset. 
 
+已使用 KRaft 代替 zookeeper
 
 #### 高可用
 
