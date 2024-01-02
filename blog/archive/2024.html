@@ -430,6 +430,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#spring-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spring Cloud
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       分布式锁
@@ -442,15 +451,6 @@
   <a href="#k8s" class="md-nav__link">
     <span class="md-ellipsis">
       K8S
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#wal" class="md-nav__link">
-    <span class="md-ellipsis">
-      WAL机制
     </span>
   </a>
   
@@ -582,14 +582,15 @@ else（‘E’），当系统在没有分区的情况下正常运行时，系统
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="dubbo"><a class="toclink" href="../2024/01/02/dubbo.html">Dubbo</a></h2>
-<h4 id="_1"><a class="toclink" href="../2024/01/02/dubbo.html#_1">核心组件</a></h4>
+    <h2 id="dubbo"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html">Dubbo</a></h2>
+<h2 id="dubbo_1"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#dubbo_1"><a href="https://cn.dubbo.apache.org/zh-cn/overview/what/">Dubbo</a></a></h2>
+<h4 id="_1"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#_1">核心组件</a></h4>
 <p>Provider：暴露服务的提供方，可以通过jar或者容器的方式启动服务；</p>
 <p>Consumer：调用远程服务的服务消费方；</p>
 <p>Registry：服务注册中心和发现中心；</p>
 <p>Monitor：统计服务和调用次数，调用时间监控中心（dubbo的控制台页面中可以显示，目前只有一个简单版本）；</p>
 <p>Container：服务运行的容器</p>
-<h4 id="_2"><a class="toclink" href="../2024/01/02/dubbo.html#_2">设计分层</a></h4>
+<h4 id="_2"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#_2">设计分层</a></h4>
 <p>接口服务层（Service）：该层与业务逻辑相关，根据 provider 和 consumer 的业务设计对应的接口和实现</p>
 <p>配置层（Config）：对外配置接口，以 ServiceConfig 和 ReferenceConfig 为中心</p>
 <p>服务代理层（Proxy）：服务接口透明代理，生成服务的客户端 Stub 和 服务端的 Skeleton，以 ServiceProxy 为中心，扩展接口为 ProxyFactory</p>
@@ -600,18 +601,18 @@ else（‘E’），当系统在没有分区的情况下正常运行时，系统
 <p>信息交换层（Exchange）：封装请求响应模式，同步转异步。以 Request 和Response 为中心，扩展接口为 Exchanger、ExchangeChannel、ExchangeClient 和 ExchangeServer</p>
 <p>网络 传输 层（Transport）：抽象 mina 和 netty 为统一接口，以 Message 为中心，扩展接口为 Channel、Transporter、Client、Server 和 Codec</p>
 <p>数据序列化层（Serialize）：可复用的一些工具，扩展接口为 Serialization、ObjectInput、ObjectOutput 和 ThreadPool</p>
-<h4 id="_3"><a class="toclink" href="../2024/01/02/dubbo.html#_3">注册中心</a></h4>
+<h4 id="_3"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#_3">注册中心</a></h4>
 <p>Multicast 注册中心：Multicast 注册中心不需要任何中心节点，只要广播地址，就能进行服务注册和发现,基于网络中组播传输实现。</p>
 <p>Zookeeper 注册中心：基于分布式协调系统 Zookeeper 实现，采用 Zookeeper 的 watch 机制实现数据变更。</p>
 <p>Redis 注册中心：基于 Redis 实现，采用 key/map 存储，key 存储服务名和类型，map 中 key 存储服务 url，value 服务过期时间。基于 Redis 的发布/订阅模式通知数据变更。</p>
 <p>Simple 注册中心。</p>
 <p>推荐使用 Zookeeper 作为注册中心</p>
-<h4 id="_4"><a class="toclink" href="../2024/01/02/dubbo.html#_4">负载均衡策略</a></h4>
+<h4 id="_4"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#_4">负载均衡策略</a></h4>
 <p>Random LoadBalance: 随机选取提供者策略，有利于动态调整提供者权重。截面碰撞率高，调用次数越多，分布越均匀。</p>
 <p>RoundRobin LoadBalance: 轮循选取提供者策略，平均分布，但是存在请求累积的问题。</p>
 <p>LeastActive LoadBalance: 最少活跃调用策略，解决慢提供者接收更少的请求。</p>
 <p>ConstantHash LoadBalance: 一致性 Hash 策略，使相同参数请求总是发到同一提供者，一台机器宕机，可以基于虚拟节点，分摊至其他提供者，避免引起提供者的剧烈变动。</p>
-<h4 id="_5"><a class="toclink" href="../2024/01/02/dubbo.html#_5">集群容错</a></h4>
+<h4 id="_5"><a class="toclink" href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html#_5">集群容错</a></h4>
 <p>Failover Cluster：失败自动切换，当出现失败，重试其它服务器。通常用于读操作，但重试会带来更长延迟。</p>
 <p>Failfast Cluster：快速失败，只发起一次调用，失败立即报错。通常用于非幂等性的写操作，比如新增记录。</p>
 <p>Failsafe Cluster：失败安全，出现异常时，直接忽略。通常用于写入审计日志等操作。</p>
@@ -619,7 +620,37 @@ else（‘E’），当系统在没有分区的情况下正常运行时，系统
 <p>Forking Cluster：并行调用多个服务器，只要一个成功即返回。通常用于实时性要求较高的读操作，但需要浪费更多服务资源。可通过 forks=”2″ 来设置最大并行数。</p>
 <p>Broadcast Cluster：广播调用所有提供者，逐个调用，任意一台报错则报错 。通常用于通知所有提供者更新缓存或日志等本地资源信息。</p>
     <nav class="md-post__action">
-      <a href="../2024/01/02/dubbo.html">
+      <a href="../2024/01/02/dubbohttpscndubboapacheorgzh-cnoverviewwhat.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-02 00:00:00">January 2, 2024</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="spring-cloud"><a class="toclink" href="../2024/01/02/spring-cloud.html">Spring Cloud</a></h2>
+    <nav class="md-post__action">
+      <a href="../2024/01/02/spring-cloud.html">
         Continue reading
       </a>
     </nav>
@@ -702,6 +733,11 @@ else（‘E’），当系统在没有分区的情况下正常运行时，系统
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="k8s"><a class="toclink" href="../2024/01/01/k8s.html">K8S</a></h2>
+<h4 id="service-mesh"><a class="toclink" href="../2024/01/01/k8s.html#service-mesh"><a href="https://istio.io/latest/about/service-mesh/">Service Mesh</a></a></h4>
+<p>Envoy：负责各个应用服务之间通信。
+Pilot：管理和配置Envoy，提供服务发现、负载均衡和智能路由，保证弹性服务（服务超时次数、重试、熔断策略）。
+Mixer：信息监控检查。
+Istio-Auth：提供服务和服务、用户和服务之间的认证服务，实现访问控制，解决是谁访问的是哪个 API 的问题</p>
 <h4 id="etcd"><a class="toclink" href="../2024/01/01/k8s.html#etcd">ETCD</a></h4>
 <p>是一个管理配置信息和服务发现（service discovery）的项目，它的目标是构建一个高可用的分布式键值（key-value）数据库.</p>
 <h4 id="k8s_1"><a class="toclink" href="../2024/01/01/k8s.html#k8s_1">K8S 集群管理</a></h4>
@@ -719,40 +755,6 @@ else（‘E’），当系统在没有分区的情况下正常运行时，系统
 </code></pre>
     <nav class="md-post__action">
       <a href="../2024/01/01/k8s.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-01-01 00:00:00">January 1, 2024</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="wal"><a class="toclink" href="../2024/01/01/wal%E6%9C%BA%E5%88%B6.html">WAL机制</a></h2>
-<p>Write-Ahead Logging，它的关键点就是日志先写内存，再写磁盘.
-MySQL执行更新操作后，在真正把数据写入到磁盘前，先记录日志。</p>
-<p><a href="../2023/12/30/db.html#mysql">MySQL</a> redo log包括两部分内容，分别是内存中的日志缓冲(<a href="../2023/12/30/db.html#redo-log">redo log</a> buffer)和磁盘上的日志文件(redo log file)。</p>
-<p><a href="../2023/12/30/db.html#mysql">MySQL</a> 每执行一条DML语句，会先把记录写入redo log buffer，后续某个时间点再一次性将多个操作记录写到redo log file。这种先写日志，再写磁盘的技术，就是WAL。</p>
-    <nav class="md-post__action">
-      <a href="../2024/01/01/wal%E6%9C%BA%E5%88%B6.html">
         Continue reading
       </a>
     </nav>

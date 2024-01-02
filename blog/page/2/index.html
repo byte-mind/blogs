@@ -451,6 +451,115 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
+    <h2 id="message"><a class="toclink" href="../../2024/01/01/message.html">Message</a></h2>
+<h4 id="kafka"><a class="toclink" href="../../2024/01/01/message.html#kafka">kafka</a></h4>
+<p>Topic 分成 Partion, 分区仅 1 Consumer 消费，记录 消费 offset. </p>
+<h5 id="_1"><a class="toclink" href="../../2024/01/01/message.html#_1">高可用</a></h5>
+<ul>
+<li>不同的Broker分散运行在不同的机器上</li>
+<li>Replication</li>
+<li>领导者副本（Leader Replica） : 生产者总是向领导者副本写消息；而消费者总是从领导者副本读消息</li>
+<li>追随者副本（Follower Replica : 请求领导者把最新生产的消息发给它，这样它能保持与领导者的同步。</li>
+<li>Partitioning</li>
+<li>分区机制指的是将每个主题划分成多个分区（Partition），每个分区是一组有序的消息日志</li>
+</ul>
+<pre><code>Kafka的三层消息架构：
+
+第一层是主题层，每个主题可以配置M个分区，而每个分区又可以配置N个副本。
+第二层是分区层，每个分区的N个副本中只能有一个充当领导者角色，对外提供服务；其他N-1个副本是追随者副本，只是提供数据冗余之用。
+第三层是消息层，分区中包含若干条消息，每条消息的位移从0开始，依次递增。
+最后，客户端程序只能与分区的领导者副本进行交互
+
+</code></pre>
+<h5 id="rebalance"><a class="toclink" href="../../2024/01/01/message.html#rebalance"><a href="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Kafka%e6%a0%b8%e5%bf%83%e6%8a%80%e6%9c%af%e4%b8%8e%e5%ae%9e%e6%88%98/17%20%e6%b6%88%e8%b4%b9%e8%80%85%e7%bb%84%e9%87%8d%e5%b9%b3%e8%a1%a1%e8%83%bd%e9%81%bf%e5%85%8d%e5%90%97%ef%bc%9f.md">rebalance 问题</a></a></h5>
+<p>Rebalance就是让一个Consumer Group下所有的Consumer实例就如何消费订阅主题的所有分区达成共识的过程。在Rebalance过程中，所有Consumer实例共同参与，在协调者组件的帮助下，完成订阅主题分区的分配。但是，在整个过程中，所有实例都不能消费任何消息，因此它对Consumer的TPS影响很大。</p>
+<ul>
+<li>组成员数量变化</li>
+<li>订阅主题数量变化</li>
+<li>订阅主题分区变化</li>
+</ul>
+<p>解决方案</p>
+<p>后期版本提供 StickyAssignor feature，粘性的分区分配策略，保留之前的分配方案，实现分区分配的最小变动</p>
+<p>Consumer 
+    session.timeout.ms
+    heartbeat.interval.ms</p>
+<h5 id="_2"><a class="toclink" href="../../2024/01/01/message.html#_2">消费者组</a></h5>
+<p>消费者组是Kafka提供的可扩展且具有容错性的消费者机制。</p>
+<p>作为队列，消费者组允许你分割数据处理到一组进程集合上（即一个消费者组中可以包含多个消费者进程，他们共同消费该topic的数据），这有助于你的消费能力的动态调整；作为-订阅模型（publish-subscribe），Kafka允许你将同一份消息广播到多个消费者组里，以此来丰富多种数据使用场景</p>
+<p>在消费者组中，多个实例共同订阅若干个主题，实现共同消费。同一个组下的每个实例都配置有相同的组ID，被分配不同的订阅分区。当某个实例挂掉的时候，其他实例会自动地承担起它负责消费的分区。因此，消费者组在一定程度上也保证了消费者程序的高可用性</p>
+<h5 id="offset"><a class="toclink" href="../../2024/01/01/message.html#offset">Offset</a></h5>
+<p><a href="https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/Kafka%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/18%20Kafka%E4%B8%AD%E4%BD%8D%E7%A7%BB%E6%8F%90%E4%BA%A4%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.md">位移提交机制</a></p>
+<p>Consumer的消费位移，它记录了Consumer要消费的下一条消息的位移。</p>
+<pre><code>假设一个分区中有10条消息，位移分别是0到9。某个Consumer应用已消费了5条消息，这就说明该Consumer消费了位移为0到4的5条消息，此时Consumer的位移是5，指向了下一条消息的位移。
+</code></pre>
+<h5 id="why-fast"><a class="toclink" href="../../2024/01/01/message.html#why-fast">why fast</a></h5>
+<p>Zero Copy
+顺序写入
+消息压缩
+分批发送</p>
+    <nav class="md-post__action">
+      <a href="../../2024/01/01/message.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-01 00:00:00">January 1, 2024</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="wal"><a class="toclink" href="../../2024/01/01/wal%E6%9C%BA%E5%88%B6.html">WAL机制</a></h2>
+<p>Write-Ahead Logging，它的关键点就是日志先写内存，再写磁盘.
+MySQL执行更新操作后，在真正把数据写入到磁盘前，先记录日志。</p>
+<p><a href="../../2023/12/30/db.html#mysql">MySQL</a> redo log包括两部分内容，分别是内存中的日志缓冲(<a href="../../2023/12/30/db.html#redo-log">redo log</a> buffer)和磁盘上的日志文件(redo log file)。</p>
+<p><a href="../../2023/12/30/db.html#mysql">MySQL</a> 每执行一条DML语句，会先把记录写入redo log buffer，后续某个时间点再一次性将多个操作记录写到redo log file。这种先写日志，再写磁盘的技术，就是WAL。</p>
+    <nav class="md-post__action">
+      <a href="../../2024/01/01/wal%E6%9C%BA%E5%88%B6.html">
+        Continue reading
+      </a>
+    </nav>
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-01-01 00:00:00">January 1, 2024</time></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
     <h2 id="interview"><a class="toclink" href="../../2024/01/01/interview.html">interview</a></h2>
 <h4 id="db"><a class="toclink" href="../../2024/01/01/interview.html#db"><a href="../../2023/12/30/db.html">DB 相关</a></a></h4>
 <ul>
@@ -601,253 +710,6 @@
   </div>
 </article>
       
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="cache"><a class="toclink" href="../../2023/12/31/cache.html">Cache</a></h2>
-<h4 id="redis"><a class="toclink" href="../../2023/12/31/cache.html#redis">Redis</a></h4>
-<div class="admonition info">
-<p class="admonition-title">why so fast</p>
-</div>
-<p><img alt="" src="../../20240101104811.png" /></p>
-<div class="admonition info">
-<p class="admonition-title">supported applications</p>
-</div>
-<p><a href="../../2023/12/31/cache.html#redis">分布式锁</a></p>
-<p><a href="../../2024/01/01/rate-limithttpsjuejincnpost7209504489010430010searchid202401011520515375bf8ca32f8e95d53c.html#redis">限流</a></p>
-<p>消息队列</p>
-<p>延时队列</p>
-<p>分布式session</p>
-<h6 id="cache_1"><a class="toclink" href="../../2023/12/31/cache.html#cache_1">Cache 策略</a></h6>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Write</th>
-<th>Read</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cache Aside</td>
-<td>update DB； delete cache item；</td>
-<td>read from cache; missed then read from db ; put data into cache</td>
-<td>考虑强一致场景，写操作需加锁</td>
-</tr>
-<tr>
-<td>Read/Write Through</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Write Behind</td>
-<td>update to Cache, after while, flush to DB</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h6 id="cache-issue"><a class="toclink" href="../../2023/12/31/cache.html#cache-issue">Cache Issue</a></h6>
-<ul>
-<li>雪崩
-大量KEY 失效后，大流量直接访问数据库</li>
-</ul>
-<pre><code>对KEY设置随机过期时间
-限流熔断
-数据库读写分离
-</code></pre>
-<ul>
-<li>击穿
-热点KEY 失效后，大流量直接访问数据库</li>
-</ul>
-<pre><code>热点KEY 过期时间设置长
-互斥锁，Cache KEY 访问失败后，需要获取锁，才能访问数据库
-</code></pre>
-<ul>
-<li>穿透
-不存在的KEY，大流量直接访问数据库</li>
-</ul>
-<pre><code>布隆过滤器, 先判断是否KEY存在，不存在就直接返回NULL
-</code></pre>
-<h6 id="cache_2"><a class="toclink" href="../../2023/12/31/cache.html#cache_2">Cache 淘汰算法</a></h6>
-<p>FIFO First In First Out</p>
-<p>LFU leastly frequently used</p>
-<pre><code>优点：高频使用的数据，可以较长的保存不被淘汰。
-缺点：无法缓存某一时间点的热点数据。
-</code></pre>
-<p>LRU leastly recently used</p>
-<pre><code>LRU 算法使用页面置换算法，会首先淘汰最长时间未被使用的数据。
-优点：热点数据，可以较长的保存不被淘汰
-缺点：当某一时间节点产生了大量仅访问了一次的数据，热点数据会被淘汰
-</code></pre>
-<p>LRU - K</p>
-<pre><code>LRU-K 算法中需要维护两个队列：历史队列和缓存队列
-历史队列保存着每次访问的页面，当页面访问次数达到了 k 次，该页面出栈，并保存至缓存队列；
-若尚未达到 k 次则继续保存，直至历史队列也满了，那就根据一定的缓存策略（FIFO、LRU、LFU）进行淘汰；
-缓存队列则是保存已经访问 k 次的页面，当该队列满了之后，则淘汰最后一个页面.
-
-LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1” 提升为 “K”。
-优点：避免了仅访问 1 次就能淘汰其余缓存的 “缓存污染” 问题，提高了缓存命中率。
-缺点：多维护了一个历史队列，消耗内存较高
-</code></pre>
-<p>LRU - 2Q</p>
-<h6 id="redis_1"><a class="toclink" href="../../2023/12/31/cache.html#redis_1">Redis 淘汰</a></h6>
-<p>Redis并不会立马删除过期的数据。Redis 采用「惰性删除」+「定期删除」的组合策略，对过期数据进行清理。</p>
-<p><strong>惰性删除</strong>
-当有客户端的请求查询该 key 时，服务端会检查下 key 是否过期，如果过期，则删除该 key</p>
-<p><strong>定期删除</strong>
-会将设置了过期时间的 key 放入到一个独立的字典中，在「定期删除」策略中，会定时遍历这个字典，删除过期的数据</p>
-<p>实际内存超出 maxmemory 时，Redis 提供了如下几种策略</p>
-<p>noeviction</p>
-<p>volatile-lru: 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰</p>
-<p>volatile-ttl: key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰</p>
-<p>volatile-random:</p>
-<p>allkeys-lru: 没有设置过期时间的 key 也会被淘汰</p>
-<p>allkeys-random: 随机的 key.</p>
-<h6 id="_1"><a class="toclink" href="../../2023/12/31/cache.html#_1">持久化</a></h6>
-<p>snapshotting, RDB</p>
-<p>append-only, AOF</p>
-<p>RDB &amp; AOF</p>
-<h6 id="_2"><a class="toclink" href="../../2023/12/31/cache.html#_2">集群</a></h6>
-<ul>
-<li>
-<p>Master Slave</p>
-</li>
-<li>
-<p>Sentinel</p>
-</li>
-</ul>
-<p>主从复制基础上加入了哨兵节点，实现了自动故障转移,会监控主节点和从节点的运行状态。当主节点发生故障时，哨兵节点会自动从从节点中选举出一个新的主节点，并通知其他从节点和客户端，实现故障转移。</p>
-<ul>
-<li>Cluster</li>
-</ul>
-<p>Cluster模式下，Redis将所有的键值对数据分散在多个节点上。每个节点负责一部分数据，称为槽位。通过对数据的分片，Cluster模式可以突破单节点的内存限制，实现更大规模的数据存储。Redis Cluster将数据分为16384个槽位，每个节点负责管理一部分槽位。当客户端向Redis Cluster发送请求时，Cluster会根据键的哈希值将请求路由到相应的节点。具体来说，Redis Cluster使用CRC16算法计算键的哈希值，然后对16384取模，得到槽位编号</p>
-<h6 id="_3"><a class="toclink" href="../../2023/12/31/cache.html#_3"><a href="https://javaguide.cn/database/redis/redis-data-structures-01.html">基本数据类型</a></a></h6>
-<table>
-<thead>
-<tr>
-<th>String</th>
-<th>List</th>
-<th>Set</th>
-<th>Hash</th>
-<th>Zset</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SDS simple dynamic string</td>
-<td>Linkedlist</td>
-<td>Dict, ZipList</td>
-<td>Dict, IntSet</td>
-<td>ZipList, SkipList</td>
-</tr>
-</tbody>
-</table>
-<p>SkipList</p>
-<p>跳跃表以链表+多层索引的结构， 效率和平衡树媲美 —— 查找、删除、添加等操作都可以在对数期望时间下完成， 并且比起平衡树来说， 跳跃表的实现要简单直观得多</p>
-<p>ZipList</p>
-    <nav class="md-post__action">
-      <a href="../../2023/12/31/cache.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2023-12-31 00:00:00">December 31, 2023</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="cloud-native"><a class="toclink" href="../../2023/12/31/cloud-native.html">Cloud Native</a></h2>
-<h4 id="intro"><a class="toclink" href="../../2023/12/31/cloud-native.html#intro">"Intro"</a></h4>
-<p>满足云原生最佳技术实践和管理实践要求，应用从需求提出开始就使用云原生资源和服务能力，并最终能够持续交付到云平台的应用；同时在该应用交付完成后还需要具备足够的管控治理能力和可观测性。</p>
-<p>Cloud Native 包含</p>
-<ul>
-<li>
-<p><a href="../../2023/12/31/microservice.html">微服务</a>， 敏捷基础管理</p>
-</li>
-<li>
-<p>DevOps, <a href="./ContinuousDelivery.md">CI&amp;CD</a>, Conways Law, etc</p>
-</li>
-<li>
-<p>应用容器化 (software stack to be containerized)</p>
-</li>
-<li>
-<p>面向微服务 (microservice oriented)</p>
-</li>
-<li>
-<p>容器编排调度 (orchestrated)</p>
-</li>
-<li>
-<p>服务网格 (service mesh)</p>
-</li>
-</ul>
-<pre><code>微服务中分 侵入式架构和非侵入式架构
-侵入式架构 - Dev 调用各种组件，如 RPC ，负载均衡，熔断等，业务代码与非功能性代码耦合
-非侵入式架构 - Dev 关注业务代码， Service Mesh 关注其他非功能性
-</code></pre>
-<ul>
-<li>
-<p>不可变基础设施 (Immuntable Infrastructure)</p>
-</li>
-<li>
-<p>声明式API (declarative API)</p>
-</li>
-</ul>
-<h4 id="info-why"><a class="toclink" href="../../2023/12/31/cloud-native.html#info-why">info "Why"</a></h4>
-<pre><code>| Req                  | Solution |
-| -------------------- | -------- |
-| 更快的上线需求       | CI&amp;CD    |
-| 细致的故障探测和发现 | [微服务](Microservices.md)   |
-| 故障能自动隔离       | [微服务](Microservices.md)   |
-| 故障可以自动恢复     | [微服务](Microservices.md)   |
-| 水平扩容             | [微服务](Microservices.md)   |
-</code></pre>
-    <nav class="md-post__action">
-      <a href="../../2023/12/31/cloud-native.html">
-        Continue reading
-      </a>
-    </nav>
-  </div>
-</article>
-      
       
         
           
@@ -855,7 +717,7 @@ LRU-K 算法的核心思想就是将访问一次就能淘汰其余缓存的 “1
 
 
 <nav class="md-pagination">
-  <a class="md-pagination__link" href="../../index.html">1</a> <span class="md-pagination__current">2</span> <a class="md-pagination__link" href="../3/index.html">3</a>
+  <a class="md-pagination__link" href="../../index.html">1</a> <span class="md-pagination__current">2</span> <a class="md-pagination__link" href="../3/index.html">3</a> <a class="md-pagination__link" href="../4/index.html">4</a>
 </nav>
         
       

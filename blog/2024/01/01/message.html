@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="dubbohttpscndubboapacheorgzh-cnoverviewwhat.html">
+        <link rel="prev" href="wal%E6%9C%BA%E5%88%B6.html">
       
+      
+        <link rel="next" href="k8s.html">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>分布式一致性 - Byte Mind</title>
+        <title>Message - Byte Mind</title>
       
     
     
@@ -53,11 +55,11 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="分布式一致性 - Byte Mind" >
+        <meta  property="og:title"  content="Message - Byte Mind" >
       
         <meta  property="og:description"  content="None" >
       
-        <meta  property="og:image"  content="./assets/images/social/blog/posts/Consistence.png" >
+        <meta  property="og:image"  content="./assets/images/social/blog/posts/Message.png" >
       
         <meta  property="og:image:type"  content="image/png" >
       
@@ -69,11 +71,11 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="分布式一致性 - Byte Mind" >
+        <meta  name="twitter:title"  content="Message - Byte Mind" >
       
         <meta  name="twitter:description"  content="None" >
       
-        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/Consistence.png" >
+        <meta  name="twitter:image"  content="./assets/images/social/blog/posts/Message.png" >
       
     
     
@@ -94,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#message" class="md-skip">
           Skip to content
         </a>
       
@@ -128,7 +130,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              分布式一致性
+              Message
             
           </span>
         </div>
@@ -453,7 +455,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
-                        <time datetime="2024-01-02 00:00:00" class="md-ellipsis">January 2, 2024</time>
+                        <time datetime="2024-01-01 00:00:00" class="md-ellipsis">January 1, 2024</time>
                       </div>
                     </li>
                     
@@ -493,29 +495,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cap" class="md-nav__link">
+  <a href="#kafka" class="md-nav__link">
     <span class="md-ellipsis">
-      CAP
+      kafka
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="kafka">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      高可用
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#base" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#rebalance" class="md-nav__link">
     <span class="md-ellipsis">
-      BASE
+      rebalance 问题
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#pacelc" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      PACELC
+      消费者组
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Offset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      why fast
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -531,20 +566,52 @@
         
 
 
-<h1 id="_1">分布式一致性</h1>
-<h3 id="cap">CAP</h3>
-<p>C：Consistency，一致性，所有数据变动都是同步的。</p>
-<p>A：Availability，可用性，即在可以接受的时间范围内正确地响应用户请求。</p>
-<p>P：Partition tolerance，分区容错性，即某节点或网络分区故障时，系统仍能够提供满足一致性和可用性的服务。</p>
-<h3 id="base">BASE</h3>
-<p>BA：Basically Available，基本可用。</p>
-<p>S：Soft State，软状态，状态可以有一段时间不同步。</p>
-<p>E：Eventually Consistent，最终一致，最终数据是一致的就可以了，而不是时时保持强一致。</p>
-<h3 id="pacelc">PACELC</h3>
-<p><img alt="" src="../../../20240102072312.png" /></p>
-<p>PACELC 定理指出，在复制数据的系统中：
-如果存在分区（“P”），分布式系统可以在可用性和一致性（即“A”和“C”）之间进行权衡；
-else（‘E’），当系统在没有分区的情况下正常运行时，系统可以在延迟（‘L’）和一致性（‘C’）之间进行权衡。</p>
+<h1 id="message">Message</h1>
+<h3 id="kafka">kafka</h3>
+<p>Topic 分成 Partion, 分区仅 1 Consumer 消费，记录 消费 offset. </p>
+<h4 id="_1">高可用</h4>
+<ul>
+<li>不同的Broker分散运行在不同的机器上</li>
+<li>Replication</li>
+<li>领导者副本（Leader Replica） : 生产者总是向领导者副本写消息；而消费者总是从领导者副本读消息</li>
+<li>追随者副本（Follower Replica : 请求领导者把最新生产的消息发给它，这样它能保持与领导者的同步。</li>
+<li>Partitioning</li>
+<li>分区机制指的是将每个主题划分成多个分区（Partition），每个分区是一组有序的消息日志</li>
+</ul>
+<pre><code>Kafka的三层消息架构：
+
+第一层是主题层，每个主题可以配置M个分区，而每个分区又可以配置N个副本。
+第二层是分区层，每个分区的N个副本中只能有一个充当领导者角色，对外提供服务；其他N-1个副本是追随者副本，只是提供数据冗余之用。
+第三层是消息层，分区中包含若干条消息，每条消息的位移从0开始，依次递增。
+最后，客户端程序只能与分区的领导者副本进行交互
+
+</code></pre>
+<h4 id="rebalance"><a href="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Kafka%e6%a0%b8%e5%bf%83%e6%8a%80%e6%9c%af%e4%b8%8e%e5%ae%9e%e6%88%98/17%20%e6%b6%88%e8%b4%b9%e8%80%85%e7%bb%84%e9%87%8d%e5%b9%b3%e8%a1%a1%e8%83%bd%e9%81%bf%e5%85%8d%e5%90%97%ef%bc%9f.md">rebalance 问题</a></h4>
+<p>Rebalance就是让一个Consumer Group下所有的Consumer实例就如何消费订阅主题的所有分区达成共识的过程。在Rebalance过程中，所有Consumer实例共同参与，在协调者组件的帮助下，完成订阅主题分区的分配。但是，在整个过程中，所有实例都不能消费任何消息，因此它对Consumer的TPS影响很大。</p>
+<ul>
+<li>组成员数量变化</li>
+<li>订阅主题数量变化</li>
+<li>订阅主题分区变化</li>
+</ul>
+<p>解决方案</p>
+<p>后期版本提供 StickyAssignor feature，粘性的分区分配策略，保留之前的分配方案，实现分区分配的最小变动</p>
+<p>Consumer 
+    session.timeout.ms
+    heartbeat.interval.ms</p>
+<h4 id="_2">消费者组</h4>
+<p>消费者组是Kafka提供的可扩展且具有容错性的消费者机制。</p>
+<p>作为队列，消费者组允许你分割数据处理到一组进程集合上（即一个消费者组中可以包含多个消费者进程，他们共同消费该topic的数据），这有助于你的消费能力的动态调整；作为-订阅模型（publish-subscribe），Kafka允许你将同一份消息广播到多个消费者组里，以此来丰富多种数据使用场景</p>
+<p>在消费者组中，多个实例共同订阅若干个主题，实现共同消费。同一个组下的每个实例都配置有相同的组ID，被分配不同的订阅分区。当某个实例挂掉的时候，其他实例会自动地承担起它负责消费的分区。因此，消费者组在一定程度上也保证了消费者程序的高可用性</p>
+<h4 id="offset">Offset</h4>
+<p><a href="https://learn.lianglianglee.com/%E4%B8%93%E6%A0%8F/Kafka%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%AE%9E%E6%88%98/18%20Kafka%E4%B8%AD%E4%BD%8D%E7%A7%BB%E6%8F%90%E4%BA%A4%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF.md">位移提交机制</a></p>
+<p>Consumer的消费位移，它记录了Consumer要消费的下一条消息的位移。</p>
+<pre><code>假设一个分区中有10条消息，位移分别是0到9。某个Consumer应用已消费了5条消息，这就说明该Consumer消费了位移为0到4的5条消息，此时Consumer的位移是5，指向了下一条消息的位移。
+</code></pre>
+<h4 id="why-fast">why fast</h4>
+<p>Zero Copy
+顺序写入
+消息压缩
+分批发送</p>
 
 
 
