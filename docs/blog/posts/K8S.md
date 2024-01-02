@@ -7,7 +7,13 @@ date:
 # K8S
 
 
-### Service Mesh
+### [Service Mesh](https://istio.io/latest/about/service-mesh/)
+
+Envoy：负责各个应用服务之间通信。
+Pilot：管理和配置Envoy，提供服务发现、负载均衡和智能路由，保证弹性服务（服务超时次数、重试、熔断策略）。
+Mixer：信息监控检查。
+Istio-Auth：提供服务和服务、用户和服务之间的认证服务，实现访问控制，解决是谁访问的是哪个 API 的问题
+
 
 ### ETCD
 
