@@ -68,6 +68,28 @@ Consumer的消费位移，它记录了Consumer要消费的下一条消息的位�
 假设一个分区中有10条消息，位移分别是0到9。某个Consumer应用已消费了5条消息，这就说明该Consumer消费了位移为0到4的5条消息，此时Consumer的位移是5，指向了下一条消息的位移。
 ```
 
+#### 消息不丢失
+
+Kafka只对“已提交”的消息（committed message）做有限度的持久化保证。
+
+committed message ： 当Kafka的若干个Broker成功地接收到一条消息并写入到日志文件后，它们会告诉生产者程序这条消息已成功提交。
+
+Kafka Producer是异步发送消息的，Producer永远要使用带有回调通知的发送API，也就是说不要使用producer.send(msg)，而要使用producer.send(msg, callback)。不要小瞧这里的callback（回调），它能准确地告诉你消息是否真的提交成功了。
+
+#### Kafka拦截器
+
+生产者拦截器和消费者拦截器
+
+#### 消息交付可靠性保障
+
+最多一次（at most once）：消息可能会丢失，但绝不会被重复发送。
+至少一次（at least once）：消息不会丢失，但有可能被重复发送。
+精确一次（exactly once）：消息不会丢失，也不会被重复发送。
+
+幂等性Producer
+    保证单分区、单会话上的消息幂等性
+事务型Producer
+    保证跨分区、跨会话间的幂等性.事务型Producer的性能要更差
 #### why fast
 
 Zero Copy
