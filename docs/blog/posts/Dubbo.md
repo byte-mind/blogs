@@ -3,7 +3,7 @@ date:
     created: 2024-01-02
 ---
 
-# Dubbo
+# [Dubbo](https://cn.dubbo.apache.org/zh-cn/overview/what/)
 
 ### 核心组件
 
