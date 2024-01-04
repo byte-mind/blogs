@@ -23,6 +23,12 @@ date:
 
 分布式session
 
+##### hot key & big key
+
+[hot key](https://dongzl.github.io/2021/01/14/03-Redis-Hot-Key/index.html)
+
+![](20240104103230.png)
+
 
 ##### Cache 策略
 
