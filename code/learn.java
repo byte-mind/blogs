@@ -1,7 +1,13 @@
 package code;
 
 import java.lang.System;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
+
+import javax.xml.transform.Source;
 
 public class learn {
     
@@ -81,7 +87,9 @@ public class learn {
 
     // https://github.com/Anfany/Codility-Lessons-By-Python3/blob/master/L2_Arrays/2.1%20CyclicRotation.md
     // https://github.com/Mickey0521/Codility/blob/master/CyclicRotation.java
-    public static int[] rorateArray(int [] nums, int K){
+    // https://chienchikao.blogspot.com/2017/08/codility-lesson-2-arrays-2.html
+    // https://zihengcat.github.io/2019/08/31/leetcode-189-rotate-array/
+    public static int[] rotateArray(int [] nums, int K){
         int[] ret = new int [nums.length];
 
         for(int i=0; i< nums.length; i++){
@@ -91,11 +99,97 @@ public class learn {
         return ret;
     }
 
+    public static int[] rotateArray1(int [] nums, int K){
+       
+        for(int i = 0; i < K; i++){
+            int tmp = nums[nums.length - 1];
+            shiftArray(nums);
+            nums[0] = tmp;
+        }
+        return nums;
+    }
+
+    public static int [] shiftArray (int [] nums){
+        for(int i = nums.length - 1; i > 0; i--){
+            nums[i] = nums[i-1];
+        }
+        return nums;
+    }
+
+
+// https://chienchikao.blogspot.com/2017/08/2-add-two-numbers.html
+
+    public static Node addTwoNum( Node A, Node B){
+
+        Node head = new Node(0, null);
+        int carry = 0;
+        while(A.next != null && B.next != null){
+                int tmp = A.val + B.val + carry;
+                if (tmp > 10) {
+                    head.val = tmp % 10;
+                    carry = tmp / 10;
+                } else {
+                    head.val = tmp + carry;
+                }
+                head.next = new Node(0, null);
+                head = head.next;
+                A = A.next;
+                B = B.next;
+        }
+        return head;
+
+    }
+    public static int longestSubstring(String s){
+        int longest = 0;
+        char[] arrs = s.toCharArray();
+        int len = arrs.length;
+        final HashSet keys = new HashSet();
+        int i = 0, j = i+1;
+        while(i < len && j<len-1){
+
+        }
+        return longest = longest > keys.size() ? longest : keys.size();
+    }
+
+
+    public static Node add(){
+
+        Node A = new Node(1, new Node(2, new Node(3, new Node(4, null))));
+
+        Node B  = new Node(1, new Node(3, new Node(4, new Node(5, null))));
+
+        Node head = new Node(0, null);
+
+        Node tmp = null;
+
+        while(A.next != null && B.next != null){
+
+            if(A.val > B.val){
+                head.val = B.val;
+                B = B.next;
+            } else {
+                head.val=A.val;
+                A = A.next;
+            }
+            tmp = new Node(0, null);
+            head.next = tmp;
+        }
+
+        return head;
+    }
+
 
     public static void main(String [] args) {
        
+        Node h = add();
+        System.out.println(h);
+
+
+        // int nums [] = {1,2,3,4}; 
+        // int ret [] = rotateArray( nums, 1);
+        // System.out.println(Arrays.toString(ret));
         // System.out.println(solution("amz","amz"));
-        System.out.println(solution("abc","bcd"));
+        // System.out.println(solution("abc","bcd"));
 
         // System.out.println(binaryGap(20));
         // System.out.println(binaryGap(529));
