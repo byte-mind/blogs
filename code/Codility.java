@@ -94,4 +94,81 @@ public class Codility {
         }
     }
 
+    public int frogJump(int X, int Y, int D){
+        int count = 1;
+
+        while(true){
+
+            if (X + D * count >= Y){
+                break;
+            }
+            count++;
+        }
+
+        return count;
+    }
+
+    @Test
+    public void testFrogJump(){
+        System.out.println(frogJump(10, 85, 30));
+    }
+
+
+    @Test
+    public void testPermMissingElem(){
+
+    }
+
+
+
+    public int tapeEquilibrium(int [] nums){
+        int minDiff = 10;
+        int right = 0 , left = 0;
+
+        for( int i = 0; i < nums.length ; i++){
+
+            right+= nums[i];
+            left = leftSum(nums, i + 1);
+            if(Math.abs(right - left) <= minDiff){
+                minDiff = Math.abs(right - left);
+            }
+
+        }
+
+        return minDiff;
+    }
+    public int leftSum(int [] nums , int pos){
+        int leftSum = 0;
+        for( int i = nums.length - 1; i >= pos; i--){
+            leftSum+= nums[i];
+        }
+        return leftSum;
+    }
+
+    @Test
+    public void testTapeEquilibrium(){
+        System.out.println(tapeEquilibrium(new int[]{ 3,1,2,4,3 }));
+
+    }
+
+
+    public int countMod(int A, int B, int K){
+        int count = 0;
+        int i = A;
+
+        while(i <= B){
+
+            if( i % K == 0){
+                count++;
+            }
+            i++;
+        }
+
+        return count;
+    }
+
+    @Test
+    public void testCountMod(){
+        System.out.println(countMod(4, 11, 2));
+    }
 }
